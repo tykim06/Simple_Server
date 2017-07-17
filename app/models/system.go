@@ -1,5 +1,14 @@
 package models
 
+import "time"
+
+type System struct {
+	Id        uint64 `db:"Id"`
+	Model     string `db:"Model"`
+	Health    string `db:"Health"`
+	CreatedAt string `db:"CreatedAt"`
+}
+
 type SystemJson struct {
 	Bios struct {
 		Current struct {
@@ -22,4 +31,10 @@ type SystemJson struct {
 		Health string `json:"Health"`
 		State  string `json:"State"`
 	} `json:"Status"`
+}
+
+func (c SystemJson) JsonToDB(system *System) {
+	system.Model = c.Model
+	system.Health = c.Processors.Status.HealthRollUp
+	system.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
 }

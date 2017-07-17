@@ -1,0 +1,22 @@
+ERROR 2017/07/17 18:10:10 # ilo/app/controllers
+app/controllers/hpDB.go:25: type models.SystemJson is not an expression
+app/controllers/hpDB.go:28: invalid indirect of ilo (type int)
+
+ERROR 2017/07/17 18:10:40 # ilo/app/controllers
+app/controllers/hpDB.go:28: invalid indirect of ilo (type int)
+
+ERROR 2017/07/17 18:11:10 # ilo/app/controllers
+app/controllers/hpDB.go:28: cannot use ilo (type int) as type models.Ilo in argument to getState
+
+ERROR 2017/07/17 18:13:55 # ilo/app/controllers
+app/controllers/hpDB.go:28: invalid indirect of ilo (type int)
+
+ERROR 2017/07/17 18:14:11 # ilo/app/controllers
+app/controllers/hpDB.go:28: cannot use &ilo (type *int) as type models.Ilo in argument to getState
+
+ERROR 2017/07/17 18:14:29 # ilo/app/controllers
+app/controllers/hpDB.go:28: cannot use ilo (type int) as type models.Ilo in argument to getState
+
+ERROR 2017/07/17 18:50:00 # ilo/app/controllers
+app/controllers/hpDB.go:29: cannot take the address of systemJson.JsonToDB()
+

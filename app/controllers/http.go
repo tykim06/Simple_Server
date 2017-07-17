@@ -34,10 +34,7 @@ const (
 	GET_STATE_SYSTEM_LOG
 )
 
-type HttpController struct {
-}
-
-func (c HttpController) getState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{}) error {
+func getState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{}) error {
 	url := HTTPS + ilo.Host
 	switch state_type {
 	case GET_STATE_FAN:
