@@ -1,0 +1,41 @@
+{{template "overviewHeader.html" .}}
+
+<!-- Page Content -->
+<div class="container">
+{{if not .eventJson}}
+	<h1>No Response from Server</h1>
+{{else}}
+<ul class="pagination">
+	{{range $page := .pageInfo}}
+	<li><a href="{{url "Monitor.EventLog" $.id $page}}">{{$page}}</a></li>
+	{{end}}
+</ul> 
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Severity</th>
+			<th>Description</th>
+			<th>CreatedAt</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{range $item := .eventJson.Items}}
+		<tr>
+			<td>
+			{{if eq $item.Severity "OK" }}
+				<button type="button" class="btn btn-info">Info</button>
+			{{else}}
+				<button type="button" class="btn btn-warning">{{$item.Severity}}</button>
+			{{end}}
+			</td>
+			<td>{{$item.Message}}</td>
+			<td>{{$item.Created}}</td>
+		</tr>
+	{{end}}
+	</tbody>
+</table>
+{{end}}
+</div>
+<!-- /.container -->
+
+{{template "footer.html" .}}

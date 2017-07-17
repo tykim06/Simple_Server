@@ -1,14 +1,14 @@
 package controllers
 
 import (
+	//"code.google.com/p/go.crypto/bcrypt"
 	"database/sql"
-	"fmt"
-	"simple_server/app/models"
-	"strings"
+	"ilo/app/models"
+	"log"
 
 	"github.com/coopernurse/gorp"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/revel/revel"
+	r "github.com/revel/revel"
 )
 
 var (
@@ -16,89 +16,63 @@ var (
 )
 
 type GorpController struct {
-	*revel.Controller
+	*r.Controller
 	Txn *gorp.Transaction
 }
 
-func getParamString(param string, defaultValue string) string {
-	p, found := revel.Config.String(param)
-	if !found {
-		if defaultValue == "" {
-			revel.ERROR.Fatal("Cound not find parameter: " + param)
-		} else {
-			return defaultValue
-		}
-	}
-	return p
-}
-
-func getConnectionString() string {
-	host := getParamString("db.host", "127.0.0.1")
-	port := getParamString("db.port", "3306")
-	user := getParamString("db.user", "root")
-	pass := getParamString("db.password", "1234")
-	dbname := getParamString("db.name", "sample")
-	protocol := getParamString("db.protocol", "tcp")
-	dbargs := getParamString("dbargs", " ")
-
-	if strings.Trim(dbargs, " ") != "" {
-		dbargs = "?" + dbargs
-	} else {
-		dbargs = ""
-	}
-	return fmt.Sprintf("%s:%s@%s([%s]:%s)/%s%s",
-		user, pass, protocol, host, port, dbname, dbargs)
-}
-
-var InitDb func() = func() {
-	connectionString := getConnectionString()
-	if db, err := sql.Open("mysql", connectionString); err != nil {
-		revel.ERROR.Fatal(err)
-	} else {
-		Dbm = &gorp.DbMap{
-			Db:      db,
-			Dialect: gorp.MySQLDialect{"InnoDB", "UTF8"}}
-	}
-	// Defines the table for use by GORP
-	// This is a function we will create soon.
-	defineBidItemTable(Dbm)
-	if err := Dbm.CreateTablesIfNotExists(); err != nil {
-		revel.ERROR.Fatal(err)
+func checkErr(err error, msg string) {
+	if err != nil {
+		log.Fatalln(msg, err)
 	}
 }
 
-func defineBidItemTable(dbm *gorp.DbMap) {
-	// set "id" as primary key and autoincrement
-	t := dbm.AddTable(models.BidItem{}).SetKeys(true, "id")
-	// e.g. VARCHAR(25)
-	t.ColMap("name").SetMaxSize(25)
+func InitDB() {
+
+	db, err := sql.Open("mysql", "root:1234@tcp(127.0.0.1:3306)/iLO")
+	checkErr(err, "sql.Open failed")
+	Dbm = &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDB", "UTF8"}}
+
+	Dbm.AddTableWithName(models.Fan{}, "Fan").SetKeys(true, "Id")
+	Dbm.AddTableWithName(models.Power{}, "Power").SetKeys(true, "Id")
+	Dbm.AddTableWithName(models.Temperature{}, "Temperature").SetKeys(true, "Id")
+	Dbm.AddTableWithName(models.EventLog{}, "EventLog").SetKeys(true, "Id")
+	i := Dbm.AddTableWithName(models.Ilo{}, "Ilo").SetKeys(true, "Id")
+	i.ColMap("CreatedAtTime").Transient = true
+	err = Dbm.CreateTablesIfNotExists()
+	checkErr(err, "Create tables failed")
+	Dbm.TraceOn("[gorp]", r.INFO)
+
+	log.Println("success gorp initialize")
 }
 
-func (c *GorpController) Begin() revel.Result {
+func (c *GorpController) Begin() r.Result {
 	txn, err := Dbm.Begin()
 	if err != nil {
+		log.Println("pannic occured in Begin")
 		panic(err)
 	}
 	c.Txn = txn
 	return nil
 }
 
-func (c *GorpController) Commit() revel.Result {
+func (c *GorpController) Commit() r.Result {
 	if c.Txn == nil {
 		return nil
 	}
 	if err := c.Txn.Commit(); err != nil && err != sql.ErrTxDone {
+		log.Println("pannic occured in Commit")
 		panic(err)
 	}
 	c.Txn = nil
 	return nil
 }
 
-func (c *GorpController) Rollback() revel.Result {
+func (c *GorpController) Rollback() r.Result {
 	if c.Txn == nil {
 		return nil
 	}
 	if err := c.Txn.Rollback(); err != nil && err != sql.ErrTxDone {
+		log.Println("pannic occured in Rollback")
 		panic(err)
 	}
 	c.Txn = nil

@@ -8,9 +8,10 @@ import (
 	controllers0 "github.com/revel/modules/static/app/controllers"
 	_ "github.com/revel/modules/testrunner/app"
 	controllers1 "github.com/revel/modules/testrunner/app/controllers"
-	_ "simple_server/app"
-	controllers "simple_server/app/controllers"
-	tests "simple_server/tests"
+	_ "ilo/app"
+	controllers "ilo/app/controllers"
+	models "ilo/app/models"
+	tests "ilo/tests"
 	"github.com/revel/revel/testing"
 )
 
@@ -50,20 +51,6 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-				},
-			},
-			
-		})
-	
-	revel.RegisterController((*controllers.App)(nil),
-		[]*revel.MethodType{
-			&revel.MethodType{
-				Name: "Index",
-				Args: []*revel.MethodArg{ 
-				},
-				RenderArgNames: map[int][]string{ 
-					12: []string{ 
-					},
 				},
 			},
 			
@@ -134,57 +121,117 @@ func main() {
 			
 		})
 	
-	revel.RegisterController((*controllers.BidItemCtrl)(nil),
+	revel.RegisterController((*controllers.Monitor)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
-				Name: "Add",
+				Name: "Index",
 				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					33: []string{ 
+						"ilos",
+						"systemJsons",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "AddiLOForm",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					37: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "AddiLO",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "ilo", Type: reflect.TypeOf((*models.Ilo)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
 				},
 			},
 			&revel.MethodType{
-				Name: "Get",
+				Name: "Overview",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int64)(nil)) },
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+					90: []string{ 
+						"id",
+						"subSystems",
+						"states",
+					},
 				},
 			},
 			&revel.MethodType{
-				Name: "List",
+				Name: "Fans",
 				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+					99: []string{ 
+						"id",
+						"fanJson",
+					},
 				},
 			},
 			&revel.MethodType{
-				Name: "Update",
+				Name: "Powers",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int64)(nil)) },
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+					107: []string{ 
+						"id",
+						"powerJson",
+					},
 				},
 			},
 			&revel.MethodType{
-				Name: "Delete",
+				Name: "Temperatures",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int64)(nil)) },
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
+					115: []string{ 
+						"id",
+						"temperatureJson",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "EventLog",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					130: []string{ 
+						"id",
+						"eventJson",
+						"pageInfo",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "SystemLog",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					145: []string{ 
+						"id",
+						"systemJson",
+						"pageInfo",
+					},
 				},
 			},
 			
 		})
 	
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
-		"simple_server/app/models.(*BidItem).Validate": { 
-			23: "b.Name",
-			29: "b.Category",
-			32: "b.EstimatedValue",
-			35: "b.StartBid",
-			38: "b.BidIncrement",
-		},
 	}
 	testing.TestSuites = []interface{}{ 
 		(*tests.AppTest)(nil),

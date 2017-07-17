@@ -1,0 +1,36 @@
+{{template "overviewHeader.html" .}}
+
+<!-- Page Content -->
+<div class="container">
+{{if not .powerJson}}
+	<h1>No Response from Server</h1>
+{{else}}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Bay Number</th>
+			<th>Model</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{range $power := .powerJson.PowerSupplies}}
+		<tr>
+			<td>{{$power.Oem.Hp.BayNumber}}</td>
+			<td>{{$power.Model}}</td>
+			<td>
+			{{if eq $power.Oem.Hp.PowerSupplyStatus.State "Ok"}}
+				<button type="button" class="btn btn-success">{{$power.Oem.Hp.PowerSupplyStatus.State}}</button>
+			{{else}}
+				<button type="button" class="btn btn-warning">{{$power.Oem.Hp.PowerSupplyStatus.State}}</button>
+			{{end}}
+			</td>
+		</tr>
+	{{end}}
+	</tbody>
+</table>
+{{end}}
+</div>
+<!-- /.container -->
+
+{{template "footer.html" .}}

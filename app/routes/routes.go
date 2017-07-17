@@ -30,18 +30,6 @@ func (_ tGorpController) Rollback(
 }
 
 
-type tApp struct {}
-var App tApp
-
-
-func (_ tApp) Index(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("App.Index", args).URL
-}
-
-
 type tStatic struct {}
 var Static tStatic
 
@@ -110,49 +98,89 @@ func (_ tTestRunner) List(
 }
 
 
-type tBidItemCtrl struct {}
-var BidItemCtrl tBidItemCtrl
+type tMonitor struct {}
+var Monitor tMonitor
 
 
-func (_ tBidItemCtrl) Add(
+func (_ tMonitor) Index(
 		) string {
 	args := make(map[string]string)
 	
-	return revel.MainRouter.Reverse("BidItemCtrl.Add", args).URL
+	return revel.MainRouter.Reverse("Monitor.Index", args).URL
 }
 
-func (_ tBidItemCtrl) Get(
-		id int64,
+func (_ tMonitor) AddiLOForm(
+		) string {
+	args := make(map[string]string)
+	
+	return revel.MainRouter.Reverse("Monitor.AddiLOForm", args).URL
+}
+
+func (_ tMonitor) AddiLO(
+		ilo interface{},
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "ilo", ilo)
+	return revel.MainRouter.Reverse("Monitor.AddiLO", args).URL
+}
+
+func (_ tMonitor) Overview(
+		id int,
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("BidItemCtrl.Get", args).URL
+	return revel.MainRouter.Reverse("Monitor.Overview", args).URL
 }
 
-func (_ tBidItemCtrl) List(
-		) string {
-	args := make(map[string]string)
-	
-	return revel.MainRouter.Reverse("BidItemCtrl.List", args).URL
-}
-
-func (_ tBidItemCtrl) Update(
-		id int64,
+func (_ tMonitor) Fans(
+		id int,
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("BidItemCtrl.Update", args).URL
+	return revel.MainRouter.Reverse("Monitor.Fans", args).URL
 }
 
-func (_ tBidItemCtrl) Delete(
-		id int64,
+func (_ tMonitor) Powers(
+		id int,
 		) string {
 	args := make(map[string]string)
 	
 	revel.Unbind(args, "id", id)
-	return revel.MainRouter.Reverse("BidItemCtrl.Delete", args).URL
+	return revel.MainRouter.Reverse("Monitor.Powers", args).URL
+}
+
+func (_ tMonitor) Temperatures(
+		id int,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	return revel.MainRouter.Reverse("Monitor.Temperatures", args).URL
+}
+
+func (_ tMonitor) EventLog(
+		id int,
+		pageNumber int,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "pageNumber", pageNumber)
+	return revel.MainRouter.Reverse("Monitor.EventLog", args).URL
+}
+
+func (_ tMonitor) SystemLog(
+		id int,
+		pageNumber int,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "pageNumber", pageNumber)
+	return revel.MainRouter.Reverse("Monitor.SystemLog", args).URL
 }
 
 

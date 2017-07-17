@@ -7,13 +7,14 @@ module:testrunner
 # module:jobs
 
 
-GET     /                                       App.Index
-
-GET     /item/:id                               BidItemCtrl.Get
-POST    /item                                   BidItemCtrl.Add
-PUT     /item/:id                               BidItemCtrl.Update
-DELETE  /item/:id                               BidItemCtrl.Delete
-GET     /items                                  BidItemCtrl.List
+GET     /                                       Monitor.Index
+POST    /monitor                                Monitor.AddiLO
+GET     /monitor/overview/:id                   Monitor.Overview
+GET     /monitor/fans/:id                       Monitor.Fans
+GET     /monitor/powers/:id                     Monitor.Powers
+GET     /monitor/temperatures/:id               Monitor.Temperatures
+GET     /monitor/eventlog/:id/page/:pageNumber  Monitor.EventLog
+GET     /monitor/systemlog/:id/page/:pageNumber  Monitor.SystemLog
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

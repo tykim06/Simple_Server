@@ -1,0 +1,40 @@
+{{template "overviewHeader.html" .}}
+
+<!-- Page Content -->
+<div class="container">
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>SubSystem</td>
+			<td>State</td>
+		</tr>
+	</thead>
+	<tbody>
+		{{range $i, $subSystem := .subSystems}}
+		<tr>
+			<th>{{$subSystem}}</th>
+			<th>
+			{{if eq $subSystem "Fans"}}
+	                        <a href="{{url "Monitor.Fans" $.id}}">
+			{{else if eq $subSystem "Temperatures"}}
+	                        <a href="{{url "Monitor.Temperatures" $.id}}">
+			{{else}}
+	                        <a href="{{url "Monitor.Powers" $.id}}">
+			{{end}}
+			{{if eq (index $.states $i) "OK"}}
+				<button type="button" class="btn btn-success">
+			{{else}}
+				<button type="button" class="btn btn-warning">
+			{{end}}
+				{{index $.states $i}}</button></a>
+			</th>
+		</tr>
+		{{end}}
+	</tbody>
+</table>
+
+</div>
+<!-- /.container -->
+
+{{template "footer.html" .}}

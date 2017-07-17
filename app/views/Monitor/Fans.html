@@ -1,0 +1,36 @@
+{{template "overviewHeader.html" .}}
+
+<!-- Page Content -->
+<div class="container">
+{{if not .fanJson}}
+	<h1>No Response from Server</h1>
+{{else}}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Status</th>
+			<th>Speed</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{range $fan := .fanJson.Fans}}
+		<tr>
+			<td>{{$fan.FanName}}</td>
+			<td>
+			{{if eq $fan.Status.Health "OK"}}
+				<button type="button" class="btn btn-success">{{$fan.Status.Health}}</button>
+			{{else}}
+				<button type="button" class="btn btn-warning">{{$fan.Status.State}}</button>
+			{{end}}
+			</td>
+			<td>{{$fan.CurrentReading}}%</td>
+		</tr>
+	{{end}}
+	</tbody>
+</table>
+{{end}}
+</div>
+<!-- /.container -->
+
+{{template "footer.html" .}}

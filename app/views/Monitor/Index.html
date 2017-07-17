@@ -1,0 +1,49 @@
+{{template "header.html" .}}
+
+<!-- Page Content -->
+<div class="container">
+{{if not .ilos}}
+	<h1>No Registered Server</h1>
+{{else}}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th class="text-center">IP</th>
+			<th class="text-center">Power</th>
+			<th class="text-center">State</th>
+			<th class="text-center">Details</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{range $i, $ilo := .ilos}}
+	{{$systemJson := index $.systemJsons $i}}
+		<tr>
+			<td class="text-center"><h4>{{$ilo.Host}}</h4></td>
+			<td class="text-center">
+			{{if eq $systemJson.Power "On" }}
+				<button type="button" class="btn btn-success">{{$systemJson.Power}}</button>
+			{{else}}
+				<button type="button" class="btn btn-danger">{{$systemJson.Power}}</button>
+			{{end}}
+			</td>
+			<td class="text-center">
+			{{if eq $systemJson.Status.Health "OK" }}
+				<button type="button" class="btn btn-success">{{$systemJson.Status.Health}}</button>
+			{{else}}
+				<button type="button" class="btn btn-danger">{{$systemJson.Status.State}}</button>
+			{{end}}
+			</td>
+			<td class="text-center">
+				<a href="{{url "Monitor.Overview" $i}}">
+				<button type="button" class="btn">Show</button>
+				</a>
+			</td>
+		</tr>
+	{{end}}
+	</tbody>
+</table>
+{{end}}
+</div>
+<!-- /.container -->
+
+{{template "footer.html" .}}
