@@ -14,12 +14,7 @@ type Monitor struct {
 }
 
 func (c Monitor) Index() revel.Result {
-	systemJsons := make([]models.SystemJson, len(ilos))
-	for i, _ := range ilos {
-		getState(GET_STATE_SYSTEM, *ilos[i], &systemJsons[i])
-	}
-	log.Println(systemJsons)
-	return c.Render(ilos, systemJsons)
+	return c.Render(ilos, systems)
 }
 
 func (c Monitor) AddiLOForm() revel.Result {
@@ -27,8 +22,7 @@ func (c Monitor) AddiLOForm() revel.Result {
 }
 
 func (c Monitor) AddiLO(ilo models.Ilo) revel.Result {
-	ilo.CreatedAtTime = time.Now()
-	ilo.CreatedAt = ilo.CreatedAtTime.Format("2006-01-02 15:04:05")
+	ilo.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
 	log.Println(ilo)
 	err := c.Txn.Insert(&ilo)
 	if err != nil {
@@ -41,7 +35,7 @@ func (c Monitor) Overview(id int) revel.Result {
 	subSystems := []string{"Fans", "Powers", "Temperatures"}
 	states := []string{"OK", "OK", "OK"}
 	fanJson := &models.FanJson{}
-	err := getState(GET_STATE_FAN, *ilos[id], fanJson)
+	err := HttpGetState(GET_STATE_FAN, *ilos[id], fanJson)
 	if err != nil {
 		panic(err)
 	}
@@ -53,7 +47,7 @@ func (c Monitor) Overview(id int) revel.Result {
 	}
 
 	powerJson := &models.PowerJson{}
-	err = getState(GET_STATE_POWER, *ilos[id], powerJson)
+	err = HttpGetState(GET_STATE_POWER, *ilos[id], powerJson)
 	if err != nil {
 		panic(err)
 	}
@@ -65,7 +59,7 @@ func (c Monitor) Overview(id int) revel.Result {
 	}
 
 	temperatureJson := &models.TemperatureJson{}
-	err = getState(GET_STATE_TEMPERATURE, *ilos[id], temperatureJson)
+	err = HttpGetState(GET_STATE_TEMPERATURE, *ilos[id], temperatureJson)
 	if err != nil {
 		panic(err)
 	}
@@ -81,7 +75,7 @@ func (c Monitor) Overview(id int) revel.Result {
 
 func (c Monitor) Fans(id int) revel.Result {
 	fanJson := &models.FanJson{}
-	err := getState(GET_STATE_FAN, *ilos[id], fanJson)
+	err := HttpGetState(GET_STATE_FAN, *ilos[id], fanJson)
 	if err != nil {
 		panic(err)
 	}
@@ -89,7 +83,7 @@ func (c Monitor) Fans(id int) revel.Result {
 }
 func (c Monitor) Powers(id int) revel.Result {
 	powerJson := &models.PowerJson{}
-	err := getState(GET_STATE_POWER, *ilos[id], powerJson)
+	err := HttpGetState(GET_STATE_POWER, *ilos[id], powerJson)
 	if err != nil {
 		panic(err)
 	}
@@ -97,7 +91,7 @@ func (c Monitor) Powers(id int) revel.Result {
 }
 func (c Monitor) Temperatures(id int) revel.Result {
 	temperatureJson := &models.TemperatureJson{}
-	err := getState(GET_STATE_TEMPERATURE, *ilos[id], temperatureJson)
+	err := HttpGetState(GET_STATE_TEMPERATURE, *ilos[id], temperatureJson)
 	if err != nil {
 		panic(err)
 	}
@@ -107,7 +101,7 @@ func (c Monitor) Temperatures(id int) revel.Result {
 func (c Monitor) EventLog(id int, pageNumber int) revel.Result {
 	eventJson := &models.EventLogJson{}
 	eventJson.Page = pageNumber
-	err := getState(GET_STATE_EVENT_LOG, *ilos[id], eventJson)
+	err := HttpGetState(GET_STATE_EVENT_LOG, *ilos[id], eventJson)
 	if err != nil {
 		panic(err)
 	}
@@ -122,7 +116,7 @@ func (c Monitor) EventLog(id int, pageNumber int) revel.Result {
 func (c Monitor) SystemLog(id int, pageNumber int) revel.Result {
 	systemJson := &models.SystemLogJson{}
 	systemJson.Page = pageNumber
-	err := getState(GET_STATE_SYSTEM_LOG, *ilos[id], systemJson)
+	err := HttpGetState(GET_STATE_SYSTEM_LOG, *ilos[id], systemJson)
 	if err != nil {
 		panic(err)
 	}

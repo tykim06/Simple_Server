@@ -7,7 +7,8 @@ import (
 )
 
 var (
-	ilos []*models.Ilo
+	ilos    []*models.Ilo
+	systems []*models.System
 )
 
 func InitHpDB() {
@@ -18,19 +19,19 @@ func InitHpDB() {
 
 	for _, r := range results {
 		ilos = append(ilos, r.(*models.Ilo))
+		systems = append(systems, &models.System{})
 	}
-	log.Println(ilos)
+	log.Println(len(ilos), "iLO Info Found")
 
 	go func() {
-		system := models.System{}
 		systemJson := models.SystemJson{}
 		for {
-			for _, ilo := range ilos {
-				getState(GET_STATE_SYSTEM, *ilo, &systemJson)
-				systemJson.JsonToDB(&system)
-				Dbm.Insert(&system)
+			for i, ilo := range ilos {
+				HttpGetState(GET_STATE_SYSTEM, *ilo, &systemJson)
+				systemJson.JsonToDB(systems[i])
+				Dbm.Insert(systems[i])
 			}
-			time.Sleep(3 * time.Second)
+			time.Sleep(10 * time.Second)
 		}
 	}()
 }

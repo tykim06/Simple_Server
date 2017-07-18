@@ -20,3 +20,66 @@ app/controllers/hpDB.go:28: cannot use ilo (type int) as type models.Ilo in argu
 ERROR 2017/07/17 18:50:00 # ilo/app/controllers
 app/controllers/hpDB.go:29: cannot take the address of systemJson.JsonToDB()
 
+ERROR 2017/07/17 19:50:24 # ilo/app/controllers
+app/controllers/hpDB.go:23: cannot use models.System literal (type models.System) as type *models.System in append
+app/controllers/hpDB.go:31: undefined: http.GetState
+app/controllers/hpDB.go:32: cannot use &systems[i] (type **models.System) as type *models.System in argument to systemJson.JsonToDB
+app/controllers/monitor.go:39: undefined: getState
+app/controllers/monitor.go:51: undefined: getState
+app/controllers/monitor.go:63: undefined: getState
+app/controllers/monitor.go:79: undefined: getState
+app/controllers/monitor.go:87: undefined: getState
+app/controllers/monitor.go:95: undefined: getState
+app/controllers/monitor.go:105: undefined: getState
+app/controllers/monitor.go:105: too many errors
+
+ERROR 2017/07/17 19:50:48 # ilo/app/controllers
+app/controllers/hpDB.go:23: invalid indirect of models.System literal (type models.System)
+app/controllers/hpDB.go:31: undefined: http.GetState
+app/controllers/hpDB.go:32: cannot use &systems[i] (type **models.System) as type *models.System in argument to systemJson.JsonToDB
+app/controllers/monitor.go:39: undefined: getState
+app/controllers/monitor.go:51: undefined: getState
+app/controllers/monitor.go:63: undefined: getState
+app/controllers/monitor.go:79: undefined: getState
+app/controllers/monitor.go:87: undefined: getState
+app/controllers/monitor.go:95: undefined: getState
+app/controllers/monitor.go:105: undefined: getState
+app/controllers/monitor.go:105: too many errors
+
+ERROR 2017/07/17 19:51:05 # ilo/app/controllers
+app/controllers/hpDB.go:31: undefined: http.GetState
+app/controllers/hpDB.go:32: cannot use &systems[i] (type **models.System) as type *models.System in argument to systemJson.JsonToDB
+app/controllers/monitor.go:39: undefined: getState
+app/controllers/monitor.go:51: undefined: getState
+app/controllers/monitor.go:63: undefined: getState
+app/controllers/monitor.go:79: undefined: getState
+app/controllers/monitor.go:87: undefined: getState
+app/controllers/monitor.go:95: undefined: getState
+app/controllers/monitor.go:105: undefined: getState
+app/controllers/monitor.go:120: undefined: getState
+app/controllers/monitor.go:120: too many errors
+
+ERROR 2017/07/17 19:52:45 # ilo/app/controllers
+app/controllers/hpDB.go:31: cannot use &systems[i] (type **models.System) as type *models.System in argument to systemJson.JsonToDB
+app/controllers/monitor.go:39: undefined: getState
+app/controllers/monitor.go:51: undefined: getState
+app/controllers/monitor.go:63: undefined: getState
+app/controllers/monitor.go:79: undefined: getState
+app/controllers/monitor.go:87: undefined: getState
+app/controllers/monitor.go:95: undefined: getState
+app/controllers/monitor.go:105: undefined: getState
+app/controllers/monitor.go:120: undefined: getState
+
+ERROR 2017/07/17 19:53:17 # ilo/app/controllers
+app/controllers/monitor.go:39: undefined: getState
+app/controllers/monitor.go:51: undefined: getState
+app/controllers/monitor.go:63: undefined: getState
+app/controllers/monitor.go:79: undefined: getState
+app/controllers/monitor.go:87: undefined: getState
+app/controllers/monitor.go:95: undefined: getState
+app/controllers/monitor.go:105: undefined: getState
+app/controllers/monitor.go:120: undefined: getState
+
+ERROR 2017/07/17 20:46:34 # ilo/app/models
+app/models/system.go:22: missing return at end of function
+

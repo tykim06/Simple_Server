@@ -36,9 +36,8 @@ func InitDB() {
 	Dbm.AddTableWithName(models.Power{}, "Power").SetKeys(true, "Id")
 	Dbm.AddTableWithName(models.Temperature{}, "Temperature").SetKeys(true, "Id")
 	Dbm.AddTableWithName(models.EventLog{}, "EventLog").SetKeys(true, "Id")
-	Dbm.AddTableWithName(models.System{}, "System").SetKeys(true, "Id")
-	i := Dbm.AddTableWithName(models.Ilo{}, "Ilo").SetKeys(true, "Id")
-	i.ColMap("CreatedAtTime").Transient = true
+	Dbm.AddTableWithName(models.System{}, "System").SetKeys(true, "id")
+	Dbm.AddTableWithName(models.Ilo{}, "Ilo").SetKeys(true, "Id")
 	err = Dbm.CreateTablesIfNotExists()
 	checkErr(err, "Create tables failed")
 	Dbm.TraceOn("[gorp]", r.INFO)

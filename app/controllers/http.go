@@ -34,7 +34,7 @@ const (
 	GET_STATE_SYSTEM_LOG
 )
 
-func getState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{}) error {
+func HttpGetState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{}) error {
 	url := HTTPS + ilo.Host
 	switch state_type {
 	case GET_STATE_FAN:

@@ -16,21 +16,21 @@
 	</thead>
 	<tbody>
 	{{range $i, $ilo := .ilos}}
-	{{$systemJson := index $.systemJsons $i}}
+	{{$system := index $.systems $i}}
 		<tr>
 			<td class="text-center"><h4>{{$ilo.Host}}</h4></td>
 			<td class="text-center">
-			{{if eq $systemJson.Power "On" }}
-				<button type="button" class="btn btn-success">{{$systemJson.Power}}</button>
+			{{if eq $system.Power "On" }}
+				<button type="button" class="btn btn-success">{{$system.Power}}</button>
 			{{else}}
-				<button type="button" class="btn btn-danger">{{$systemJson.Power}}</button>
+				<button type="button" class="btn btn-danger">{{$system.Power}}</button>
 			{{end}}
 			</td>
 			<td class="text-center">
-			{{if eq $systemJson.Status.Health "OK" }}
-				<button type="button" class="btn btn-success">{{$systemJson.Status.Health}}</button>
+			{{if eq $system.Health "OK" }}
+				<button type="button" class="btn btn-success">{{$system.Health}}</button>
 			{{else}}
-				<button type="button" class="btn btn-danger">{{$systemJson.Status.State}}</button>
+				<button type="button" class="btn btn-danger">{{$system.Health}}</button>
 			{{end}}
 			</td>
 			<td class="text-center">

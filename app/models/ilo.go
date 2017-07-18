@@ -2,7 +2,10 @@ package models
 
 import (
 	"fmt"
+	"log"
 	"time"
+
+	"github.com/go-gorp/gorp"
 )
 
 type Ilo struct {
@@ -13,6 +16,11 @@ type Ilo struct {
 	CreatedAt string `db:"CreatedAt"`
 	//transient
 	CreatedAtTime time.Time
+}
+
+func (c *Ilo) PreInsert(_ gorp.SqlExecutor) error {
+	log.Println("ilo preinsert")
+	return nil
 }
 
 func (i Ilo) String() string {
