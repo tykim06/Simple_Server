@@ -2,7 +2,7 @@
 
 <!-- Page Content -->
 <div class="container">
-{{if not .fanJson}}
+{{if not .fans}}
 	<h1>No Response from Server</h1>
 {{else}}
 <table class="table table-striped">
@@ -10,21 +10,21 @@
 		<tr>
 			<th>Name</th>
 			<th>Status</th>
-			<th>Speed</th>
+      <th>Speed</th>
 		</tr>
 	</thead>
 	<tbody>
-	{{range $fan := .fanJson.Fans}}
+	{{range $fan := .fans}}
 		<tr>
 			<td>{{$fan.FanName}}</td>
 			<td>
-			{{if eq $fan.Status.Health "OK"}}
-				<button type="button" class="btn btn-success">{{$fan.Status.Health}}</button>
+			{{if eq $fan.FanStatus.Health "OK"}}
+				<button type="button" class="btn btn-success">{{$fan.FanStatus.Health}}</button>
 			{{else}}
-				<button type="button" class="btn btn-warning">{{$fan.Status.State}}</button>
+				<button type="button" class="btn btn-warning">{{$fan.FanStatus.State}}</button>
 			{{end}}
 			</td>
-			<td>{{$fan.CurrentReading}}%</td>
+			<td>{{$fan.CurrentReading}}</td>
 		</tr>
 	{{end}}
 	</tbody>

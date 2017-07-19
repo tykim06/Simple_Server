@@ -1,39 +1,44 @@
 package models
 
 import (
-	"fmt"
+	"time"
+
+	"github.com/coopernurse/gorp"
 )
 
 type Temperature struct {
-	Id           int64  `db:"Id"`
-	Temperature1 string `db:"Temperature1"`
-	Temperature2 string `db:"Temperature2"`
-	Temperature3 string `db:"Temperature3"`
+	Id                int64  `db:"Id"`
+	ILO_Id            int64  `db:"ILO_Id"`
+	Context           string `db:"Context" json:"Context"`
+	CurrentReading    int    `db:"CurrentReading" json:"CurrentReading"`
+	Name              string `db:"Name" json:"Name"`
+	Number            int    `db:"Number" json:"Number"`
+	TemperatureOem    `db:"Oem" json:"Oem"`
+	TemperatureStatus `db:"Status" json:"Status"`
+	Units             string `db:"Units" json:"Units"`
+	CreatedAt         string `db:"CreatedAt"`
+}
+
+type TemperatureOem struct {
+	TemperatureHp `db:"Hp" json:"Hp"`
+}
+
+type TemperatureHp struct {
+	LocationXmm int    `db:"LocationXmm" json:"LocationXmm"`
+	LocationYmm int    `db:"LocationYmm" json:"LocationYmm"`
+	Type        string `db:"Type" json:"Type"`
+}
+
+type TemperatureStatus struct {
+	Health string `db:"Health" json:"Health"`
+	State  string `db:"State" json:"State"`
+}
+
+func (c *Temperature) PreInsert(_ gorp.SqlExecutor) error {
+	c.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
+	return nil
 }
 
 type TemperatureJson struct {
-	Temperatures []struct {
-		Context                   string `json:"Context"`
-		CurrentReading            int    `json:"CurrentReading"`
-		LowerThresholdCritical    int    `json:"LowerThresholdCritical"`
-		LowerThresholdNonCritical int    `json:"LowerThresholdNonCritical"`
-		Name                      string `json:"Name"`
-		Number                    int    `json:"Number"`
-		Oem                       struct {
-			Hp struct {
-				LocationXmm int    `json:"LocationXmm"`
-				LocationYmm int    `json:"LocationYmm"`
-				Type        string `json:"Type"`
-			} `json:"Hp"`
-		} `json:"Oem"`
-		Status struct {
-			Health string `json:"Health"`
-			State  string `json:"State"`
-		} `json:"Status"`
-		Units string `json:"Units"`
-	} `json:"Temperatures"`
-}
-
-func (t Temperature) String() string {
-	return fmt.Sprintf("Temperatures(%d, %s, %s, %s)", t.Id, t.Temperature1, t.Temperature2, t.Temperature3)
+	Temperatures []Temperature `json:"Temperatures"`
 }

@@ -32,76 +32,31 @@ func (c Monitor) AddiLO(ilo models.Ilo) revel.Result {
 }
 
 func (c Monitor) Overview(id int) revel.Result {
-	subSystems := []string{"Fans", "Powers", "Temperatures"}
-	states := []string{"OK", "OK", "OK"}
-	fanJson := &models.FanJson{}
-	err := HttpGetState(GET_STATE_FAN, *ilos[id], fanJson)
-	if err != nil {
-		panic(err)
-	}
-	for _, fan := range fanJson.Fans {
-		if fan.Status.Health != "OK" {
-			states[0] = "Warning"
-			break
-		}
-	}
-
-	powerJson := &models.PowerJson{}
-	err = HttpGetState(GET_STATE_POWER, *ilos[id], powerJson)
-	if err != nil {
-		panic(err)
-	}
-	for _, power := range powerJson.PowerSupplies {
-		if power.Oem.Hp.PowerSupplyStatus.State != "Ok" {
-			states[1] = "Warning"
-			break
-		}
-	}
-
-	temperatureJson := &models.TemperatureJson{}
-	err = HttpGetState(GET_STATE_TEMPERATURE, *ilos[id], temperatureJson)
-	if err != nil {
-		panic(err)
-	}
-	for _, temperature := range temperatureJson.Temperatures {
-		if temperature.Status.Health != "OK" && temperature.Status.State != "Absent" {
-			states[2] = "Warning"
-			break
-		}
-	}
-
-	return c.Render(id, subSystems, states)
+	var fans []models.Fan
+	var temperatures []models.Temperature
+	return c.Render(id)
 }
 
 func (c Monitor) Fans(id int) revel.Result {
-	fanJson := &models.FanJson{}
-	err := HttpGetState(GET_STATE_FAN, *ilos[id], fanJson)
-	if err != nil {
-		panic(err)
-	}
-	return c.Render(id, fanJson)
+	var fans []models.Fan
+	HpDBGetNewestRecode("Fan", "FanName", &fans)
+	return c.Render(id, fans)
 }
 func (c Monitor) Powers(id int) revel.Result {
-	powerJson := &models.PowerJson{}
-	err := HttpGetState(GET_STATE_POWER, *ilos[id], powerJson)
-	if err != nil {
-		panic(err)
-	}
-	return c.Render(id, powerJson)
+	var powers []models.Power
+	HpDBGetNewestRecode("Power", "BayNumber", &powers)
+	return c.Render(id, powers)
 }
 func (c Monitor) Temperatures(id int) revel.Result {
-	temperatureJson := &models.TemperatureJson{}
-	err := HttpGetState(GET_STATE_TEMPERATURE, *ilos[id], temperatureJson)
-	if err != nil {
-		panic(err)
-	}
-	return c.Render(id, temperatureJson)
+	var temperatures []models.Temperature
+	HpDBGetNewestRecode("Temperature", "Name", &temperatures)
+	return c.Render(id, temperatures)
 }
 
 func (c Monitor) EventLog(id int, pageNumber int) revel.Result {
 	eventJson := &models.EventLogJson{}
 	eventJson.Page = pageNumber
-	err := HttpGetState(GET_STATE_EVENT_LOG, *ilos[id], eventJson)
+	err := HttpGetState(GET_STATE_EVENT_LOG, ilos[id], eventJson)
 	if err != nil {
 		panic(err)
 	}
@@ -116,7 +71,7 @@ func (c Monitor) EventLog(id int, pageNumber int) revel.Result {
 func (c Monitor) SystemLog(id int, pageNumber int) revel.Result {
 	systemJson := &models.SystemLogJson{}
 	systemJson.Page = pageNumber
-	err := HttpGetState(GET_STATE_SYSTEM_LOG, *ilos[id], systemJson)
+	err := HttpGetState(GET_STATE_SYSTEM_LOG, ilos[id], systemJson)
 	if err != nil {
 		panic(err)
 	}

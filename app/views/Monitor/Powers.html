@@ -2,7 +2,7 @@
 
 <!-- Page Content -->
 <div class="container">
-{{if not .powerJson}}
+{{if not .powers}}
 	<h1>No Response from Server</h1>
 {{else}}
 <table class="table table-striped">
@@ -14,16 +14,17 @@
 		</tr>
 	</thead>
 	<tbody>
-	{{range $power := .powerJson.PowerSupplies}}
+	{{range $power := .powers}}
 		<tr>
-			<td>{{$power.Oem.Hp.BayNumber}}</td>
+			<td>{{$power.PowerOem.PowerHp.BayNumber}}</td>
 			<td>{{$power.Model}}</td>
 			<td>
-			{{if eq $power.Oem.Hp.PowerSupplyStatus.State "Ok"}}
-				<button type="button" class="btn btn-success">{{$power.Oem.Hp.PowerSupplyStatus.State}}</button>
+			{{if eq $power.PowerStatus.Health "OK"}}
+				<button type="button" class="btn btn-success">
 			{{else}}
-				<button type="button" class="btn btn-warning">{{$power.Oem.Hp.PowerSupplyStatus.State}}</button>
+				<button type="button" class="btn btn-warning">
 			{{end}}
+      {{$power.PowerStatus.Health}}</button>
 			</td>
 		</tr>
 	{{end}}

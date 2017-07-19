@@ -83,3 +83,126 @@ app/controllers/monitor.go:120: undefined: getState
 ERROR 2017/07/17 20:46:34 # ilo/app/models
 app/models/system.go:22: missing return at end of function
 
+ERROR 2017/07/18 10:01:54 Error running: exit status 2
+ERROR 2017/07/18 10:12:48 # ilo/app/controllers
+app/controllers/hpDB.go:30: undefined: NewFan
+
+ERROR 2017/07/18 10:13:10 # ilo/app/controllers
+app/controllers/hpDB.go:30: cannot take the address of models.NewFan()
+
+ERROR 2017/07/18 10:13:42 # ilo/app/controllers
+app/controllers/hpDB.go:39: cannot use fan (type models.Fan) as type *models.Fan in argument to fanJson.JsonToDB
+
+ERROR 2017/07/18 10:14:01 Error running: exit status 2
+ERROR 2017/07/18 10:17:22 Error running: exit status 2
+ERROR 2017/07/18 10:36:56 Error running: exit status 2
+ERROR 2017/07/18 10:38:07 Error running: exit status 2
+ERROR 2017/07/18 10:45:45 # ilo/app/models
+app/models/fan.go:23: undefined: fan
+app/models/fan.go:24: undefined: fan in fan.Fans
+app/models/fan.go:24: cannot assign to fan.Fans
+app/models/fan.go:25: undefined: fan
+
+ERROR 2017/07/18 10:57:50 # ilo/app/controllers
+app/controllers/hpDB.go:47: cannot use power (type *models.Power) as type *models.Fan in argument to fanJson.JsonToDB
+
+ERROR 2017/07/18 11:11:16 # ilo/app/models
+app/models/temperature.go:56: undefined: temperature in temperature.Temperatures
+app/models/temperature.go:58: undefined: temperature in temperature.Temperatures
+
+ERROR 2017/07/18 11:11:44 # ilo/app/controllers
+app/controllers/hpDB.go:37: undefined: temperature
+app/controllers/hpDB.go:54: undefined: temperature
+app/controllers/hpDB.go:55: undefined: temperature
+app/controllers/monitor.go:83: undefined: temperature
+
+ERROR 2017/07/18 11:12:45 Error running: exit status 2
+ERROR 2017/07/18 11:17:54 Error running: exit status 2
+ERROR 2017/07/18 13:38:33 # ilo/app/controllers
+controllers/monitor.go:46: undefined: power in power.Powers
+controllers/monitor.go:64: undefined: power
+
+ERROR 2017/07/18 13:39:10 # ilo/app/controllers
+controllers/monitor.go:46: undefined: power in power.Powers
+
+ERROR 2017/07/18 13:39:42 Error running: exit status 2
+ERROR 2017/07/18 14:27:37 # ilo/app/models
+models/power.go:65: cannot use Power literal (type Power) as type *Power in append
+
+ERROR 2017/07/18 14:27:46 # ilo/app/models
+models/power.go:65: cannot use Power literal (type Power) as type *Power in append
+
+ERROR 2017/07/18 14:28:58 # ilo/app/models
+models/power.go:57: undefined: power
+models/power.go:65: cannot use Power literal (type Power) as type *Power in append
+
+ERROR 2017/07/18 14:29:10 # ilo/app/models
+models/power.go:65: cannot use Power literal (type Power) as type *Power in append
+
+ERROR 2017/07/18 14:32:24 # ilo/app/models
+models/power.go:60: invalid indirect of powers (type []*Power)
+
+ERROR 2017/07/18 14:44:35 # ilo/app/models
+models/power.go:57: undefined: power
+
+ERROR 2017/07/18 14:46:20 # ilo/app/models
+models/power.go:57: undefined: power
+models/power.go:57: []*Power literal is not a type
+
+ERROR 2017/07/18 14:48:57 # ilo/app/models
+models/power.go:57: cannot use make([]Power, len(c.PowerSupplies)) (type []Power) as type *[]Power in assignment
+models/power.go:59: invalid operation: powers[i] (type *[]Power does not support indexing)
+
+ERROR 2017/07/18 14:49:30 # ilo/app/models
+models/power.go:59: invalid operation: powers[i] (type *[]Power does not support indexing)
+
+ERROR 2017/07/18 14:51:09 # ilo/app/models
+models/power.go:64: first argument to append must be slice; have *[]Power
+
+ERROR 2017/07/18 14:52:06 # ilo/app/models
+models/power.go:64: first argument to append must be slice; have *[]Power
+
+ERROR 2017/07/18 14:53:22 Error running: exit status 2
+ERROR 2017/07/18 14:54:44 Error running: exit status 2
+ERROR 2017/07/18 14:55:54 Error running: exit status 2
+ERROR 2017/07/18 14:56:49 Error running: exit status 2
+ERROR 2017/07/18 14:58:27 Error running: exit status 2
+ERROR 2017/07/18 15:02:48 Error running: exit status 2
+ERROR 2017/07/18 15:05:52 Error running: exit status 2
+ERROR 2017/07/18 15:27:13 # ilo/app/models
+models/power.go:51: c.CreatedAt undefined (type *Power has no field or method CreatedAt)
+models/power.go:92: cannot use ilo_id (type int64) as type string in field value
+models/power.go:94: cannot use p.Model (type string) as type int in field value
+models/power.go:96: too few values in struct initializer
+
+ERROR 2017/07/18 15:27:33 # ilo/app/models
+models/power.go:51: c.CreatedAt undefined (type *Power has no field or method CreatedAt)
+models/power.go:92: cannot use ilo_id (type int64) as type string in field value
+models/power.go:94: cannot use p.Model (type string) as type int in field value
+models/power.go:96: too few values in struct initializer
+
+ERROR 2017/07/18 15:28:01 # ilo/app/models
+models/power.go:93: cannot use ilo_id (type int64) as type string in field value
+models/power.go:95: cannot use p.Model (type string) as type int in field value
+models/power.go:97: too few values in struct initializer
+
+ERROR 2017/07/18 15:28:32 # ilo/app/models
+models/power.go:95: cannot use p.Oem.Hp.BayNumber (type int) as type string in field value
+models/power.go:96: cannot use p.Model (type string) as type int in field value
+models/power.go:97: cannot use p.Status.Health (type string) as type int in field value
+models/power.go:98: too few values in struct initializer
+
+ERROR 2017/07/18 15:55:05 # ilo/app/controllers
+controllers/hpDB.go:50: powerJson.JsonToDB undefined (type models.PowerJson has no field or method JsonToDB)
+
+ERROR 2017/07/18 15:59:32 # ilo/app/controllers
+controllers/hpDB.go:50: powerJson.JsonToDB undefined (type models.PowerJson has no field or method JsonToDB)
+
+ERROR 2017/07/18 16:00:50 Error running: exit status 2
+ERROR 2017/07/18 17:01:43 # ilo/app/controllers
+controllers/monitor.go:39: undefined: fan
+
+ERROR 2017/07/18 18:55:18 # ilo/app/controllers
+controllers/monitor.go:40: undefined: powers
+controllers/monitor.go:50: undefined: powers
+

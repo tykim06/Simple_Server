@@ -1,48 +1,39 @@
 package models
 
 import (
-	"fmt"
+	"time"
+
+	"github.com/coopernurse/gorp"
 )
 
 type Power struct {
-	Id     int64  `db:"Id"`
-	Power1 string `db:"Power1"`
-	Power2 string `db:"Power2"`
+	Id          int64  `db:"Id" json:"Id"`
+	ILO_ID      int64  `db:"Ilo_id" json:"Ilo_id"`
+	Model       string `db:"Model" json:"Model"`
+	Name        string `db:"Name" json:"Name"`
+	PowerOem    `json:"Oem"`
+	PowerStatus `json:"Status"`
+	CreatedAt   string `db:"CreatedAt"`
 }
 
-func (p Power) String() string {
-	return fmt.Sprintf("Powers(%d, %s, %s)", p.Id, p.Power1, p.Power2)
+type PowerOem struct {
+	PowerHp `json:"Hp"`
+}
+
+type PowerHp struct {
+	BayNumber int `db:"BayNumber" json:"BayNumber"`
+}
+
+type PowerStatus struct {
+	Health string `db:"Health" json:"Health"`
+	State  string `db:"State" json:"State"`
+}
+
+func (c *Power) PreInsert(_ gorp.SqlExecutor) error {
+	c.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
+	return nil
 }
 
 type PowerJson struct {
-	PowerSupplies []struct {
-		FirmwareVersion      string `json:"FirmwareVersion"`
-		LastPowerOutputWatts int    `json:"LastPowerOutputWatts"`
-		LineInputVoltage     int    `json:"LineInputVoltage"`
-		LineInputVoltageType string `json:"LineInputVoltageType"`
-		Model                string `json:"Model"`
-		Name                 string `json:"Name"`
-		Oem                  struct {
-			Hp struct {
-				AveragePowerOutputWatts int  `json:"AveragePowerOutputWatts"`
-				BayNumber               int  `json:"BayNumber"`
-				HotplugCapable          bool `json:"HotplugCapable"`
-				MaxPowerOutputWatts     int  `json:"MaxPowerOutputWatts"`
-				Mismatched              bool `json:"Mismatched"`
-				PowerSupplyStatus       struct {
-					State string `json:"State"`
-				} `json:"PowerSupplyStatus"`
-				Type        string `json:"Type"`
-				IPDUCapable bool   `json:"iPDUCapable"`
-			} `json:"Hp"`
-		} `json:"Oem"`
-		PowerCapacityWatts int    `json:"PowerCapacityWatts"`
-		PowerSupplyType    string `json:"PowerSupplyType"`
-		SerialNumber       string `json:"SerialNumber"`
-		SparePartNumber    string `json:"SparePartNumber"`
-		Status             struct {
-			Health string `json:"Health"`
-			State  string `json:"State"`
-		} `json:"Status"`
-	} `json:"PowerSupplies"`
+	Powers []Power `json:"PowerSupplies"`
 }

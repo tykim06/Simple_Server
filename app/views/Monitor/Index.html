@@ -27,11 +27,12 @@
 			{{end}}
 			</td>
 			<td class="text-center">
-			{{if eq $system.Health "OK" }}
-				<button type="button" class="btn btn-success">{{$system.Health}}</button>
+			{{if eq $system.SystemStatus.Health "OK" }}
+				<button type="button" class="btn btn-success">
 			{{else}}
-				<button type="button" class="btn btn-danger">{{$system.Health}}</button>
+				<button type="button" class="btn btn-danger">
 			{{end}}
+        {{$system.SystemStatus.Health}}</button>
 			</td>
 			<td class="text-center">
 				<a href="{{url "Monitor.Overview" $i}}">

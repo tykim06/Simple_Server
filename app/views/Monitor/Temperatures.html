@@ -2,7 +2,7 @@
 
 <!-- Page Content -->
 <div class="container">
-{{if not .temperatureJson}}
+{{if not .temperatures}}
 	<h1>No Response from Server</h1>
 {{else}}
 <table class="table table-striped">
@@ -12,23 +12,21 @@
 			<th>Location</th>
 			<th>State</th>
 			<th>Temperature</th>
-			<th>Unit</th>
 		</tr>
 	</thead>
 	<tbody>
-	{{range $temperature := .temperatureJson.Temperatures}}
+	{{range $temperature := .temperatures}}
 		<tr>
 			<td>{{$temperature.Name}}</td>
 			<td>{{$temperature.Context}}</td>
 			<td>
-			{{if not $temperature.Status.Health}}
-				<button type="button" class="btn btn-warning">{{$temperature.Status.State}}</button>
+			{{if not $temperature.TemperatureStatus.Health}}
+				<button type="button" class="btn btn-warning">{{$temperature.TemperatureStatus.State}}</button>
 			{{else}}
-				<button type="button" class="btn btn-success">{{$temperature.Status.Health}}</button>
+				<button type="button" class="btn btn-success">{{$temperature.TemperatureStatus.Health}}</button>
 			{{end}}
 			</td>
 			<td>{{$temperature.CurrentReading}}</td>
-			<td>{{$temperature.Units}}</td>
 		</tr>
 	{{end}}
 	</tbody>
