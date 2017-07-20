@@ -130,11 +130,20 @@ func GetPowersHealth(ilo_id int64) string {
 	return "OK"
 }
 
+func GetTotalHealth(ilo_id int64, table string) string {
+	switch table {
+	case "Fan":
+	case "Temperature":
+	case "Power":
+	}
+	return "OK"
+}
+
 func HpDBGetOverviewInfo(ilo_id int64) map[string]string {
 	totalHealthMap := make(map[string]string)
-	totalHealthMap["Fans"] = GetFansHealth(ilo_id)
-	totalHealthMap["Temperatures"] = GetTemperaturesHealth(ilo_id)
-	totalHealthMap["Powers"] = GetPowersHealth(ilo_id)
+	totalHealthMap["Fans"] = GetTotalHealth(ilo_id, "Fan")
+	totalHealthMap["Temperatures"] = GetTotalHealth(ilo_id, "Temperature")
+	totalHealthMap["Powers"] = GetTotalHealth(ilo_id, "Power")
 
 	return totalHealthMap
 }
