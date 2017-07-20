@@ -8,7 +8,7 @@ import (
 
 type Power struct {
 	Id          int64  `db:"Id" json:"Id"`
-	ILO_ID      int64  `db:"Ilo_id" json:"Ilo_id"`
+	ILO_Id      int64  `db:"Ilo_id" json:"Ilo_id"`
 	Model       string `db:"Model" json:"Model"`
 	Name        string `db:"Name" json:"Name"`
 	PowerOem    `json:"Oem"`

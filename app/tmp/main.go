@@ -6,9 +6,12 @@ import (
 	"reflect"
 	"github.com/revel/revel"
 	controllers0 "github.com/revel/modules/static/app/controllers"
+	_ "github.com/revel/modules/testrunner/app"
+	controllers1 "github.com/revel/modules/testrunner/app/controllers"
 	_ "ilo/app"
 	controllers "ilo/app/controllers"
 	models "ilo/app/models"
+	tests "ilo/tests"
 	"github.com/revel/revel/testing"
 )
 
@@ -77,6 +80,47 @@ func main() {
 			
 		})
 	
+	revel.RegisterController((*controllers1.TestRunner)(nil),
+		[]*revel.MethodType{
+			&revel.MethodType{
+				Name: "Index",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+					76: []string{ 
+						"testSuites",
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "Suite",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "suite", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			&revel.MethodType{
+				Name: "Run",
+				Args: []*revel.MethodArg{ 
+					&revel.MethodArg{Name: "suite", Type: reflect.TypeOf((*string)(nil)) },
+					&revel.MethodArg{Name: "test", Type: reflect.TypeOf((*string)(nil)) },
+				},
+				RenderArgNames: map[int][]string{ 
+					129: []string{ 
+					},
+				},
+			},
+			&revel.MethodType{
+				Name: "List",
+				Args: []*revel.MethodArg{ 
+				},
+				RenderArgNames: map[int][]string{ 
+				},
+			},
+			
+		})
+	
 	revel.RegisterController((*controllers.Monitor)(nil),
 		[]*revel.MethodType{
 			&revel.MethodType{
@@ -113,8 +157,9 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					35: []string{ 
+					65: []string{ 
 						"id",
+						"totalHealthMap",
 					},
 				},
 			},
@@ -124,7 +169,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					41: []string{ 
+					71: []string{ 
 						"id",
 						"fans",
 					},
@@ -136,7 +181,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					46: []string{ 
+					76: []string{ 
 						"id",
 						"powers",
 					},
@@ -148,7 +193,7 @@ func main() {
 					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					51: []string{ 
+					81: []string{ 
 						"id",
 						"temperatures",
 					},
@@ -161,7 +206,7 @@ func main() {
 					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					66: []string{ 
+					96: []string{ 
 						"id",
 						"eventJson",
 						"pageInfo",
@@ -175,7 +220,7 @@ func main() {
 					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					81: []string{ 
+					111: []string{ 
 						"id",
 						"systemJson",
 						"pageInfo",
@@ -188,6 +233,7 @@ func main() {
 	revel.DefaultValidationKeys = map[string]map[int]string{ 
 	}
 	testing.TestSuites = []interface{}{ 
+		(*tests.AppTest)(nil),
 	}
 
 	revel.Run(*port)

@@ -11,15 +11,24 @@
 		</tr>
 	</thead>
 	<tbody>
-		{{range $key, $value := .healthMap}}
+		{{range $key, $value := .totalHealthMap}}
 		<tr>
 			<th>{{$key}}</th>
 			<th>
-			{{if eq $value "OK"}}
-				<button type="button" class="btn btn-success">
-			{{else}}
+        {{if eq $key "Fans"}}
+        <a href="{{url "Monitor.Fans" $.id}}">
+        {{else if eq $key "Powers"}}
+        <a href="{{url "Monitor.Powers" $.id}}">
+        {{else if eq $key "Temperatures"}}
+        <a href="{{url "Monitor.Temperatures" $.id}}">
+        {{end}}
+
+        {{if eq $value "OK"}}
+        <button type="button" class="btn btn-success">
+        {{else}}
 				<button type="button" class="btn btn-warning">
-			{{end}}
+        {{end}}
+
 				{{$value}}</button></a>
 			</th>
 		</tr>

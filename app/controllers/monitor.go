@@ -32,9 +32,37 @@ func (c Monitor) AddiLO(ilo models.Ilo) revel.Result {
 }
 
 func (c Monitor) Overview(id int) revel.Result {
+	totalHealthMap := map[string]string{
+		"Fans":         "OK",
+		"Temperatures": "OK",
+		"Powers":       "OK",
+	}
+
 	var fans []models.Fan
+	HpDBGetNewestRecode("Fan", "FanName", &fans)
+	for _, f := range fans {
+		if f.FanStatus.Health != "OK" {
+			totalHealthMap["Fans"] = "Warning"
+		}
+	}
+
 	var temperatures []models.Temperature
-	return c.Render(id)
+	HpDBGetNewestRecode("Temperature", "Name", &temperatures)
+	for _, t := range temperatures {
+		if t.TemperatureStatus.Health != "OK" && t.TemperatureStatus.State != "Absent" {
+			totalHealthMap["Temperatures"] = "Warning"
+		}
+	}
+
+	var powers []models.Power
+	HpDBGetNewestRecode("Power", "BayNumber", &powers)
+	for _, p := range powers {
+		if p.PowerStatus.Health != "OK" {
+			totalHealthMap["Powers"] = "Warning"
+		}
+	}
+
+	return c.Render(id, totalHealthMap)
 }
 
 func (c Monitor) Fans(id int) revel.Result {

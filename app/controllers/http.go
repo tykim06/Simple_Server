@@ -3,9 +3,7 @@ package controllers
 import (
 	"crypto/tls"
 	"encoding/json"
-	"fmt"
 	"ilo/app/models"
-	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -51,17 +49,20 @@ func HttpGetState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{})
 		url += (SYSTEM_LOG_STATE_URL + strconv.Itoa(target.(*models.SystemLogJson).Page))
 	}
 
-	req, err := http.NewRequest("GET", url, nil)
-	req.SetBasicAuth(ilo.User, ilo.Pass)
-	log.Println("GET request:", url, ilo.User, ilo.Pass)
-	r, err := client.Do(req)
-	if err != nil {
-		fmt.Println(err)
-		return nil
-	}
-	defer r.Body.Close()
+	var req *http.Request
+	var res *http.Response
+	var err error
 
-	return json.NewDecoder(r.Body).Decode(target)
+	if req, err = http.NewRequest("GET", url, nil); err != nil {
+		return err
+	}
+	req.SetBasicAuth(ilo.User, ilo.Pass)
+	if res, err = client.Do(req); err != nil {
+		return err
+	}
+	defer res.Body.Close()
+
+	return json.NewDecoder(res.Body).Decode(target)
 }
 
 func InitHttp() {
