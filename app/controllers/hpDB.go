@@ -13,12 +13,9 @@ func InitHpDB() {
 		var ilos []models.Ilo
 
 		for {
-			if _, err := HpDBGetIlo(&ilos); err != nil {
-				log.Println(err)
-			} else {
-				for _, ilo := range ilos {
-					go InsertCurrentState(ilo)
-				}
+			ilos = GetIlos()
+			for _, ilo := range ilos {
+				go InsertCurrentState(ilo)
 			}
 
 			time.Sleep(20 * time.Second)
@@ -65,37 +62,104 @@ func InsertCurrentState(ilo models.Ilo) {
 	}
 }
 
-func HpDBGetIlo(ilos *[]models.Ilo) ([]interface{}, error) {
-	*ilos = nil
-	return Dbm.Select(ilos, `select * from Ilo`)
+func GetNewestRecodesQuary(table string, group string, ilo_id int64) string {
+	return "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + group + ")"
 }
 
-func HpDBGetNewestSystem(ilo_id int64, system *models.System) {
-	quary := "select * from System where Id in (select max(Id) from System where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by System.SerialNumber)"
-	if err := Dbm.SelectOne(system, quary); err != nil {
-		log.Println(err)
-	}
-}
-
-func HpDBGetNewestRecode(table string, group string, ilo_id int64, target interface{}) {
-	quary := "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + group + ")"
-
+func HpDBGetNewestRecodes(table string, group string, ilo_id int64, target interface{}) error {
 	var original interface{}
-	var ok bool
 
 	switch target.(type) {
-	case *[]models.Power:
-		original, ok = target.(*[]models.Power)
-	case *[]models.Temperature:
-		original, ok = target.(*[]models.Temperature)
 	case *[]models.Fan:
-		original, ok = target.(*[]models.Fan)
+		original = target.(*[]models.Fan)
+	case *[]models.Temperature:
+		original = target.(*[]models.Temperature)
+	case *[]models.Power:
+		original = target.(*[]models.Power)
 	}
-	if !ok {
-		log.Println("Type Assertion Failed")
+	_, err := Dbm.Select(original, GetNewestRecodesQuary(table, group, ilo_id))
+
+	return err
+}
+
+func GetFansHealth(ilo_id int64) string {
+	var fans []models.Fan
+	if err := HpDBGetNewestRecodes("Fan", "FanName", ilo_id, &fans); err != nil {
+		log.Println(err)
+		return "Warning"
 	} else {
-		if _, err := Dbm.Select(original, quary); err != nil {
+		for _, f := range fans {
+			if f.FanStatus.Health != "OK" {
+				return "Warning"
+			}
+		}
+	}
+
+	return "OK"
+}
+
+func GetTemperaturesHealth(ilo_id int64) string {
+	var temperatures []models.Temperature
+	if err := HpDBGetNewestRecodes("Temperature", "Name", ilo_id, &temperatures); err != nil {
+		log.Println(err)
+		return "Warning"
+	} else {
+		for _, t := range temperatures {
+			if t.TemperatureStatus.Health != "OK" && t.TemperatureStatus.State != "Absent" {
+				return "Warning"
+			}
+		}
+	}
+
+	return "OK"
+}
+
+func GetPowersHealth(ilo_id int64) string {
+	var powers []models.Power
+	if err := HpDBGetNewestRecodes("Power", "BayNumber", ilo_id, &powers); err != nil {
+		log.Println(err)
+		return "Warning"
+	} else {
+		for _, p := range powers {
+			if p.PowerStatus.Health != "OK" {
+				return "Warning"
+			}
+		}
+	}
+
+	return "OK"
+}
+
+func HpDBGetOverviewInfo(ilo_id int64) map[string]string {
+	totalHealthMap := make(map[string]string)
+	totalHealthMap["Fans"] = GetFansHealth(ilo_id)
+	totalHealthMap["Temperatures"] = GetTemperaturesHealth(ilo_id)
+	totalHealthMap["Powers"] = GetPowersHealth(ilo_id)
+
+	return totalHealthMap
+}
+
+func GetIlos() []models.Ilo {
+	var ilos []models.Ilo
+	if _, err := Dbm.Select(&ilos, `select * from Ilo`); err != nil {
+		log.Println(err)
+	}
+	return ilos
+}
+
+func GetNewestSystems(ilos []models.Ilo) []models.System {
+	systems := make([]models.System, len(ilos))
+	for i, ilo := range ilos {
+		if err := Dbm.SelectOne(&systems[i],
+			GetNewestRecodesQuary("System", "SerialNumber", ilo.Id)); err != nil {
 			log.Println(err)
 		}
 	}
+	return systems
+}
+
+func HpDBGetIndexInfo() ([]models.Ilo, []models.System) {
+	ilos := GetIlos()
+	systems := GetNewestSystems(ilos)
+	return ilos, systems
 }

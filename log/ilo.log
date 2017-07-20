@@ -914,3 +914,281 @@ ERROR 2017/07/20 15:23:29 runtime error: invalid memory address or nil pointer d
 ERROR 2017/07/20 15:26:29 runtime error: invalid memory address or nil pointer dereference
 ERROR 2017/07/20 15:26:37 runtime error: invalid memory address or nil pointer dereference
 ERROR 2017/07/20 15:29:53 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 16:39:02 # ilo/app/controllers
+controllers/hpDB.go:16: too many arguments in call to HpDBGetIlo
+	have (*[]models.Ilo)
+	want ()
+controllers/hpDB.go:16: assignment count mismatch: 2 = 1
+controllers/hpDB.go:87: undefined: fans
+controllers/hpDB.go:87: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, <T>)
+	want (string, string, int64)
+controllers/hpDB.go:87: HpDBGetNewestRecode("Fan", "FanName", ilo_id, &fans) used as value
+controllers/hpDB.go:90: undefined: totalHealthMap
+controllers/hpDB.go:116: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:125: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:127: undefined: system
+controllers/hpDB.go:135: undefined: ilos
+controllers/hpDB.go:135: too many errors
+
+ERROR 2017/07/20 16:40:21 # ilo/app/controllers
+controllers/hpDB.go:15: assignment count mismatch: 2 = 1
+controllers/hpDB.go:86: undefined: fans
+controllers/hpDB.go:86: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, <T>)
+	want (string, string, int64)
+controllers/hpDB.go:86: HpDBGetNewestRecode("Fan", "FanName", ilo_id, &fans) used as value
+controllers/hpDB.go:89: undefined: totalHealthMap
+controllers/hpDB.go:115: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:124: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:126: undefined: system
+controllers/hpDB.go:134: undefined: ilos
+controllers/monitor.go:33: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Fan)
+	want (string, string, int64)
+controllers/monitor.go:33: too many errors
+
+ERROR 2017/07/20 16:42:21 # ilo/app/controllers
+controllers/hpDB.go:84: HpDBGetNewestRecode("Fan", "FanName", ilo_id) used as value
+controllers/hpDB.go:87: undefined: totalHealthMap
+controllers/hpDB.go:113: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:122: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:124: undefined: system
+controllers/hpDB.go:132: undefined: ilos
+controllers/monitor.go:33: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Fan)
+	want (string, string, int64)
+controllers/monitor.go:36: undefined: totalHealthMap
+controllers/monitor.go:41: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Temperature)
+	want (string, string, int64)
+controllers/monitor.go:44: undefined: totalHealthMap
+controllers/monitor.go:44: too many errors
+
+ERROR 2017/07/20 16:43:09 # ilo/app/controllers
+controllers/hpDB.go:87: cannot range over fans (type interface {})
+controllers/hpDB.go:89: undefined: totalHealthMap
+controllers/hpDB.go:115: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:124: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:126: undefined: system
+controllers/hpDB.go:134: undefined: ilos
+controllers/monitor.go:33: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Fan)
+	want (string, string, int64)
+controllers/monitor.go:36: undefined: totalHealthMap
+controllers/monitor.go:41: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Temperature)
+	want (string, string, int64)
+controllers/monitor.go:44: undefined: totalHealthMap
+controllers/monitor.go:44: too many errors
+
+ERROR 2017/07/20 16:44:07 # ilo/app/controllers
+controllers/hpDB.go:86: cannot use HpDBGetNewestRecode("Fan", "FanName", ilo_id) (type interface {}) as type []models.Fan in assignment: need type assertion
+controllers/hpDB.go:89: undefined: totalHealthMap
+controllers/hpDB.go:115: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:124: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:126: undefined: system
+controllers/hpDB.go:134: undefined: ilos
+controllers/monitor.go:33: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Fan)
+	want (string, string, int64)
+controllers/monitor.go:36: undefined: totalHealthMap
+controllers/monitor.go:41: too many arguments in call to HpDBGetNewestRecode
+	have (string, string, int64, *[]models.Temperature)
+	want (string, string, int64)
+controllers/monitor.go:44: undefined: totalHealthMap
+controllers/monitor.go:44: too many errors
+
+ERROR 2017/07/20 17:20:58 # ilo/app/controllers
+controllers/hpDB.go:82: too many arguments to return
+	have (error)
+	want ()
+controllers/hpDB.go:87: HpDBGetNewestRecodes("Fan", "FanName", ilo_id, &fans) used as value
+controllers/hpDB.go:120: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:129: undefined: system
+controllers/hpDB.go:130: undefined: SerialNumber
+controllers/hpDB.go:130: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:138: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:42: too many errors
+
+ERROR 2017/07/20 17:21:17 # ilo/app/controllers
+controllers/hpDB.go:120: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:129: undefined: system
+controllers/hpDB.go:130: undefined: SerialNumber
+controllers/hpDB.go:130: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:138: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:49: too many errors
+
+ERROR 2017/07/20 17:21:42 # ilo/app/controllers
+controllers/hpDB.go:120: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:130: undefined: SerialNumber
+controllers/hpDB.go:130: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:138: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:54: too many errors
+
+ERROR 2017/07/20 17:22:23 # ilo/app/controllers
+controllers/hpDB.go:120: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:130: undefined: SerialNumber
+controllers/hpDB.go:130: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:138: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:54: too many errors
+
+ERROR 2017/07/20 17:28:33 # ilo/app/controllers
+controllers/hpDB.go:103: undefined: temperatures
+controllers/hpDB.go:107: undefined: temperatures
+controllers/hpDB.go:108: undefined: f in f.TemperatureStatus
+controllers/hpDB.go:124: undefined: f in f.PowerStatus
+controllers/hpDB.go:144: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:154: undefined: SerialNumber
+controllers/hpDB.go:154: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:37: too many errors
+
+ERROR 2017/07/20 17:28:48 # ilo/app/controllers
+controllers/hpDB.go:108: undefined: f in f.TemperatureStatus
+controllers/hpDB.go:124: undefined: f in f.PowerStatus
+controllers/hpDB.go:144: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:154: undefined: SerialNumber
+controllers/hpDB.go:154: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:45: too many errors
+
+ERROR 2017/07/20 17:29:04 # ilo/app/controllers
+controllers/hpDB.go:124: undefined: f in f.PowerStatus
+controllers/hpDB.go:144: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:154: undefined: SerialNumber
+controllers/hpDB.go:154: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:49: too many errors
+
+ERROR 2017/07/20 17:29:18 # ilo/app/controllers
+controllers/hpDB.go:144: multiple-value Dbm.Select() in single-value context
+controllers/hpDB.go:154: undefined: SerialNumber
+controllers/hpDB.go:154: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:54: too many errors
+
+ERROR 2017/07/20 17:33:39 # ilo/app/controllers
+controllers/hpDB.go:154: undefined: SerialNumber
+controllers/hpDB.go:154: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: too many errors
+
+ERROR 2017/07/20 17:33:59 # ilo/app/controllers
+controllers/hpDB.go:154: ilo.id undefined (type models.Ilo has no field or method id, but does have Id)
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: too many errors
+
+ERROR 2017/07/20 17:34:14 # ilo/app/controllers
+controllers/hpDB.go:162: undefined: ilos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: undefined: HpDBGetNewestRecode
+
+ERROR 2017/07/20 17:35:46 # ilo/app/controllers
+controllers/hpDB.go:16: undefined: HpDBGetIlo
+controllers/hpDB.go:162: undefined: GetIlos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: too many errors
+
+ERROR 2017/07/20 17:36:00 # ilo/app/controllers
+controllers/hpDB.go:162: undefined: GetIlos
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: undefined: HpDBGetNewestRecode
+
+ERROR 2017/07/20 17:36:18 # ilo/app/controllers
+controllers/hpDB.go:16: undefined: GetIlo
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: undefined: HpDBGetNewestRecode
+
+ERROR 2017/07/20 17:36:29 # ilo/app/controllers
+controllers/monitor.go:34: undefined: HpDBGetNewestRecode
+controllers/monitor.go:37: undefined: totalHealthMap
+controllers/monitor.go:42: undefined: HpDBGetNewestRecode
+controllers/monitor.go:45: undefined: totalHealthMap
+controllers/monitor.go:49: undefined: totalHealthMap
+controllers/monitor.go:54: undefined: HpDBGetNewestRecode
+controllers/monitor.go:59: undefined: HpDBGetNewestRecode
+controllers/monitor.go:64: undefined: HpDBGetNewestRecode
+
+ERROR 2017/07/20 17:38:02 # ilo/app/controllers
+controllers/monitor.go:39: undefined: HpDBGetNewestRecode
+controllers/monitor.go:44: undefined: HpDBGetNewestRecode
+controllers/monitor.go:49: undefined: HpDBGetNewestRecode
+
