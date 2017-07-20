@@ -8,17 +8,17 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th class="text-center">IP</th>
+			<th class="text-center">Host</th>
 			<th class="text-center">Power</th>
 			<th class="text-center">State</th>
 			<th class="text-center">Details</th>
 		</tr>
 	</thead>
 	<tbody>
-	{{range $i, $ilo := .ilos}}
-	{{$system := index $.systems $i}}
+    {{range $i, $ilo := .ilos}}
+    {{$system := index $.systems $i}}
 		<tr>
-			<td class="text-center"><h4>{{$ilo.Host}}</h4></td>
+      <td class="text-center"><h4>{{$ilo.Host}}</h4></td>
 			<td class="text-center">
 			{{if eq $system.Power "On" }}
 				<button type="button" class="btn btn-success">{{$system.Power}}</button>
@@ -35,7 +35,7 @@
         {{$system.SystemStatus.Health}}</button>
 			</td>
 			<td class="text-center">
-				<a href="{{url "Monitor.Overview" $i}}">
+				<a href="{{url "Monitor.Overview" $ilo.Id}}">
 				<button type="button" class="btn">Show</button>
 				</a>
 			</td>

@@ -128,7 +128,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					17: []string{ 
+					23: []string{ 
 						"ilos",
 						"systems",
 					},
@@ -139,7 +139,7 @@ func main() {
 				Args: []*revel.MethodArg{ 
 				},
 				RenderArgNames: map[int][]string{ 
-					21: []string{ 
+					27: []string{ 
 					},
 				},
 			},
@@ -154,11 +154,11 @@ func main() {
 			&revel.MethodType{
 				Name: "Overview",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					65: []string{ 
-						"id",
+					68: []string{ 
+						"ilo_id",
 						"totalHealthMap",
 					},
 				},
@@ -166,11 +166,11 @@ func main() {
 			&revel.MethodType{
 				Name: "Fans",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					71: []string{ 
-						"id",
+					74: []string{ 
+						"ilo_id",
 						"fans",
 					},
 				},
@@ -178,11 +178,11 @@ func main() {
 			&revel.MethodType{
 				Name: "Powers",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					76: []string{ 
-						"id",
+					79: []string{ 
+						"ilo_id",
 						"powers",
 					},
 				},
@@ -190,11 +190,11 @@ func main() {
 			&revel.MethodType{
 				Name: "Temperatures",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					81: []string{ 
-						"id",
+					84: []string{ 
+						"ilo_id",
 						"temperatures",
 					},
 				},
@@ -202,28 +202,24 @@ func main() {
 			&revel.MethodType{
 				Name: "EventLog",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					96: []string{ 
-						"id",
-						"eventJson",
-						"pageInfo",
+					100: []string{ 
+						"ilo_id",
 					},
 				},
 			},
 			&revel.MethodType{
 				Name: "SystemLog",
 				Args: []*revel.MethodArg{ 
-					&revel.MethodArg{Name: "id", Type: reflect.TypeOf((*int)(nil)) },
+					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					111: []string{ 
-						"id",
-						"systemJson",
-						"pageInfo",
+					116: []string{ 
+						"ilo_id",
 					},
 				},
 			},

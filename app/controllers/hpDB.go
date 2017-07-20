@@ -3,82 +3,99 @@ package controllers
 import (
 	"ilo/app/models"
 	"log"
+	"strconv"
 	"time"
 )
 
-var (
-	ilos    []models.Ilo
-	systems []models.System
-)
-
 func InitHpDB() {
-	if _, err := Dbm.Select(&ilos, `select * from Ilo`); err != nil {
-		panic(err)
-	}
-	log.Println(len(ilos), "iLO Info Found")
-
 	go func() {
-		systems = make([]models.System, len(ilos))
+		log.Println("Start HpDB")
+		var ilos []models.Ilo
 
 		for {
-			for i, _ := range ilos {
-				go InsertCurrentState(i)
-				time.Sleep(10 * time.Second)
+			if _, err := HpDBGetIlo(&ilos); err != nil {
+				log.Println(err)
+			} else {
+				for _, ilo := range ilos {
+					go InsertCurrentState(ilo)
+				}
 			}
+
+			time.Sleep(20 * time.Second)
 		}
 	}()
 }
 
-func InsertCurrentState(i int) {
-	if err := HttpGetState(GET_STATE_SYSTEM, ilos[i], &systems[i]); err == nil {
-		systems[i].ILO_Id = ilos[i].Id
-		Dbm.Insert(&systems[i])
+func InsertCurrentState(ilo models.Ilo) {
+	var system models.System
+	if err := HttpGetState(ilo, &system); err != nil {
+		log.Println(err)
+	} else {
+		system.ILO_Id = ilo.Id
+		system.ILO_Host = ilo.Host
+		Dbm.Insert(&system)
 	}
 
-	var fanJson models.FanJson
-	if err := HttpGetState(GET_STATE_FAN, ilos[i], &fanJson); err == nil {
-		for _, fan := range fanJson.Fans {
-			fan.ILO_Id = ilos[i].Id
+	time.Sleep(1 * time.Second)
+
+	var fanTemperatureJson models.FanTemperatureJson
+	if err := HttpGetState(ilo, &fanTemperatureJson); err != nil {
+		log.Println(err)
+	} else {
+		for _, fan := range fanTemperatureJson.Fans {
+			fan.ILO_Id = ilo.Id
 			Dbm.Insert(&fan)
 		}
-	}
-
-	var powerJson models.PowerJson
-	if err := HttpGetState(GET_STATE_POWER, ilos[i], &powerJson); err == nil {
-		for _, power := range powerJson.Powers {
-			power.ILO_Id = ilos[i].Id
-			Dbm.Insert(&power)
+		for _, temperature := range fanTemperatureJson.Temperatures {
+			temperature.ILO_Id = ilo.Id
+			Dbm.Insert(&temperature)
 		}
 	}
 
-	var temperatureJson models.TemperatureJson
-	if err := HttpGetState(GET_STATE_TEMPERATURE, ilos[i], &temperatureJson); err == nil {
-		for _, temperature := range temperatureJson.Temperatures {
-			temperature.ILO_Id = ilos[i].Id
-			Dbm.Insert(&temperature)
+	time.Sleep(1 * time.Second)
+
+	var powerJson models.PowerJson
+	if err := HttpGetState(ilo, &powerJson); err != nil {
+		log.Println(err)
+	} else {
+		for _, power := range powerJson.Powers {
+			power.ILO_Id = ilo.Id
+			Dbm.Insert(&power)
 		}
 	}
 }
 
-func HpDBGetNewestRecode(table string, group string, target interface{}) {
-	quary := "select * from " + table + " where id in (select max(id) from " + table + " group by " + table + "." + group + ")"
+func HpDBGetIlo(ilos *[]models.Ilo) ([]interface{}, error) {
+	*ilos = nil
+	return Dbm.Select(ilos, `select * from Ilo`)
+}
+
+func HpDBGetNewestSystem(ilo_id int64, system *models.System) {
+	quary := "select * from System where Id in (select max(Id) from System where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by System.SerialNumber)"
+	if err := Dbm.SelectOne(system, quary); err != nil {
+		log.Println(err)
+	}
+}
+
+func HpDBGetNewestRecode(table string, group string, ilo_id int64, target interface{}) {
+	quary := "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + group + ")"
 
 	var original interface{}
 	var ok bool
 
-	switch table {
-	case "Power":
+	switch target.(type) {
+	case *[]models.Power:
 		original, ok = target.(*[]models.Power)
-	case "Temperature":
+	case *[]models.Temperature:
 		original, ok = target.(*[]models.Temperature)
-	case "Fan":
+	case *[]models.Fan:
 		original, ok = target.(*[]models.Fan)
 	}
 	if !ok {
 		log.Println("Type Assertion Failed")
-		return
-	}
-	if _, err := Dbm.Select(original, quary); err != nil {
-		log.Println("DB Select Error", err)
+	} else {
+		if _, err := Dbm.Select(original, quary); err != nil {
+			log.Println(err)
+		}
 	}
 }

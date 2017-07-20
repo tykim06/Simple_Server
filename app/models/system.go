@@ -7,8 +7,9 @@ import (
 )
 
 type System struct {
-	Id           int64 `db:"Id"`
-	ILO_Id       int64 `db:"ILO_Id"`
+	Id           int64  `db:"Id"`
+	ILO_Id       int64  `db:"ILO_Id"`
+	ILO_Host     string `db:"ILO_Host"`
 	Bios         `db:"Bios" json:"Bios"`
 	Model        string `db:"Model" json:"Model"`
 	Name         string `db:"Name" json:"Name"`

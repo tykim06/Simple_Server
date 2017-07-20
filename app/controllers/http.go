@@ -4,54 +4,48 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"ilo/app/models"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
 )
 
-var client *http.Client
+const timeout = time.Duration(10 * time.Second)
 
 const (
-	HTTPS                 string = "https://"
-	POWER_STATE_URL              = "/rest/v1/Chassis/1/PowerMetrics"
-	TEMPERATURE_STATE_URL        = "/rest/v1/Chassis/1/ThermalMetrics"
-	FAN_STATE_URL                = "/rest/v1/Chassis/1/ThermalMetrics"
-	EVENT_LOG_STATE_URL          = "/rest/v1/Managers/1/Logs/IEL/Entries?page="
-	SYSTEM_STATE_URL             = "/rest/v1/Systems/1"
-	SYSTEM_LOG_STATE_URL         = "/rest/v1/Systems/1/Logs/IML/Entries?page="
+	HTTPS                     string = "https://"
+	POWER_STATE_URL                  = "/rest/v1/Chassis/1/PowerMetrics"
+	FAN_TEMPERATURE_STATE_URL        = "/rest/v1/Chassis/1/ThermalMetrics"
+	EVENT_LOG_STATE_URL              = "/rest/v1/Managers/1/Logs/IEL/Entries?page="
+	SYSTEM_STATE_URL                 = "/rest/v1/Systems/1"
+	SYSTEM_LOG_STATE_URL             = "/rest/v1/Systems/1/Logs/IML/Entries?page="
 )
 
-type GET_STATE_TYPE uint8
+func HttpGetState(ilo models.Ilo, target interface{}) error {
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr, Timeout: timeout}
 
-const (
-	GET_STATE_FAN GET_STATE_TYPE = iota
-	GET_STATE_POWER
-	GET_STATE_TEMPERATURE
-	GET_STATE_EVENT_LOG
-	GET_STATE_SYSTEM
-	GET_STATE_SYSTEM_LOG
-)
-
-func HttpGetState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{}) error {
 	url := HTTPS + ilo.Host
-	switch state_type {
-	case GET_STATE_FAN:
-		url += FAN_STATE_URL
-	case GET_STATE_TEMPERATURE:
-		url += TEMPERATURE_STATE_URL
-	case GET_STATE_POWER:
+	switch target.(type) {
+	case *models.FanTemperatureJson:
+		url += FAN_TEMPERATURE_STATE_URL
+	case *models.PowerJson:
 		url += POWER_STATE_URL
-	case GET_STATE_EVENT_LOG:
+	case *models.EventLogJson:
 		url += (EVENT_LOG_STATE_URL + strconv.Itoa(target.(*models.EventLogJson).Page))
-	case GET_STATE_SYSTEM:
+	case *models.System:
 		url += SYSTEM_STATE_URL
-	case GET_STATE_SYSTEM_LOG:
+	case *models.SystemLogJson:
 		url += (SYSTEM_LOG_STATE_URL + strconv.Itoa(target.(*models.SystemLogJson).Page))
 	}
 
-	var req *http.Request
-	var res *http.Response
-	var err error
+	var (
+		req *http.Request
+		res *http.Response
+		err error
+	)
 
 	if req, err = http.NewRequest("GET", url, nil); err != nil {
 		return err
@@ -66,9 +60,5 @@ func HttpGetState(state_type GET_STATE_TYPE, ilo models.Ilo, target interface{})
 }
 
 func InitHttp() {
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-	}
-	timeout := time.Duration(3 * time.Second)
-	client = &http.Client{Transport: tr, Timeout: timeout}
+	log.Println("Set http attribute")
 }

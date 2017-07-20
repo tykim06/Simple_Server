@@ -206,3 +206,711 @@ ERROR 2017/07/18 18:55:18 # ilo/app/controllers
 controllers/monitor.go:40: undefined: powers
 controllers/monitor.go:50: undefined: powers
 
+ERROR 2017/07/20 10:54:44 # ilo/app/controllers
+controllers/hpDB.go:18: cannot use i (type int) as type models.Ilo in argument to InsertCurrentState
+controllers/monitor.go:16: undefined: models.Systems
+controllers/monitor.go:85: undefined: ilos
+controllers/monitor.go:100: undefined: ilos
+
+ERROR 2017/07/20 10:55:34 # ilo/app/controllers
+controllers/monitor.go:16: undefined: models.Systems
+controllers/monitor.go:85: undefined: ilos
+controllers/monitor.go:100: undefined: ilos
+
+ERROR 2017/07/20 10:56:01 # ilo/app/controllers
+controllers/monitor.go:85: undefined: ilos
+controllers/monitor.go:100: undefined: ilos
+
+ERROR 2017/07/20 11:51:20 # ilo/app/controllers
+controllers/monitor.go:63: undefined: id
+
+ERROR 2017/07/20 12:56:36 # ilo/app/controllers
+controllers/monitor.go:63: undefined: id
+
+ERROR 2017/07/20 12:58:11 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 12:58:11 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:00:32 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:00:32 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:09:10 # ilo/app/controllers
+controllers/http.go:27: cannot use timeout (type int64) as type time.Duration in field value
+controllers/http.go:65: cannot use time.Duration(10 * time.Second) (type time.Duration) as type int64 in assignment
+
+ERROR 2017/07/20 13:10:43 # ilo/app/controllers
+controllers/http.go:27: use of package time without selector
+
+ERROR 2017/07/20 13:11:03 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:11:03 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:18:15 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:18:15 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:34:22 # ilo/app/models
+models/temperature.go:9: Temperature redeclared in this block
+	previous declaration at models/fan.go:39
+models/temperature.go:22: TemperatureOem redeclared in this block
+	previous declaration at models/fan.go:52
+models/temperature.go:26: TemperatureHp redeclared in this block
+	previous declaration at models/fan.go:56
+models/temperature.go:32: TemperatureStatus redeclared in this block
+	previous declaration at models/fan.go:62
+models/temperature.go:37: (*Temperature).PreInsert redeclared in this block
+	previous declaration at models/fan.go:67
+
+ERROR 2017/07/20 13:34:48 # ilo/app/controllers
+controllers/http.go:25: undefined: tr
+controllers/http.go:28: undefined: tr
+
+ERROR 2017/07/20 13:35:07 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:35:07 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:47:28 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:47:28 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:50:21 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:50:21 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:51:51 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:51:51 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:54:07 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 13:54:07 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:29:50 # ilo/app/controllers
+controllers/hpDB.go:78: invalid operation: ("select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = ") + ilo_id (mismatched types string and int64)
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:30:23 # ilo/app/controllers
+controllers/hpDB.go:78: invalid operation: ("select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = ") + ilo_id (mismatched types string and int64)
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:31:02 # ilo/app/controllers
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:31:28 # ilo/app/controllers
+controllers/hpDB.go:79: cannot refer to unexported name strconv.itoa
+controllers/hpDB.go:79: undefined: strconv.itoa
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:32:00 # ilo/app/controllers
+controllers/hpDB.go:79: cannot use ilo_id (type int64) as type int in argument to strconv.Itoa
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:32:32 # ilo/app/controllers
+controllers/hpDB.go:79: undefined: strconv.Itoa64
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:33:56 # ilo/app/controllers
+controllers/monitor.go:75: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:80: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+controllers/monitor.go:85: cannot use ilo_id (type int) as type int64 in argument to HpDBGetNewestRecode
+
+ERROR 2017/07/20 14:34:54 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:34:54 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:35:49 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:35:49 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:36:33 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:36:33 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:36:33 Error running: exit status 2
+ERROR 2017/07/20 14:37:24 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:37:24 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:38:50 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:38:50 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:18): unexpected "}" in operand
+ERROR 2017/07/20 14:41:01 revel/router: reverse route missing route arg id
+ERROR 2017/07/20 14:43:26 # ilo/app/controllers
+controllers/monitor.go:19: non-constant array bound len(ilos)
+
+ERROR 2017/07/20 14:44:03 Template compilation error (In /home/skt/go/src/ilo/app/views/Monitor/Index.html around line 0):
+	Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:20): undefined variable "$ilos"
+ERROR 2017/07/20 14:44:03 Template Compilation Error (in /home/skt/go/src/ilo/app/views/Monitor/Index.html): Failed to parse template file using engines /home/skt/go/src/ilo/app/views/Monitor/Index.html Template Compilation Error (in Monitor/Index.html:20): undefined variable "$ilos"
+ERROR 2017/07/20 14:44:08 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc42032cbd0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc42032cbd0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc42032cbd0, 0x6b, 0x0, 0x0, 0x0, 0x41163c, 0xc42033abc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x906703, 0x6, 0x90b92a, 0xc, 0x2, 0x879be0, 0xc420140700)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:98 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4201d2240, 0xc42033c7a0, 0xc42004edf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc420352030, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f6520, 0xc420352030, 0x2213, 0x904ddf, 0x4, 0x0, 0x0, 0x0, 0xc42000e0a0, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f6520, 0xc420352030, 0x2213, 0x0, 0x0, 0x0, 0xc420352030, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4201d2240, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4201d2240, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4201d2240, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4201d2240, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4201d2240, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4201d2240, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4201d2240, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4201d2240, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4201d2240, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4201d2240, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4201d2240, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4201d2240, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1bc00, 0xc42024c8c0, 0xc42000ac00, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1bc00, 0xc42024c8c0, 0xc42000ac00)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x924218, 0xb1bc00, 0xc42024c8c0, 0xc42000ac00)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc4200aabb0, 0xb1bc00, 0xc42024c8c0, 0xc42000ac00)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc42001f220, 0xb1c380, 0xc420011c80)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:46:36 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc42013bc00, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc42013bc00, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc42013bc00, 0x6b, 0x0, 0x0, 0x0, 0xc420211c00, 0xc420260bc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x906703, 0x6, 0x90b92a, 0xc, 0x2, 0x879be0, 0xc420140620)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:98 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc420499680, 0xc4204d8f60, 0xc4202a4df0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc4203d2650, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f6520, 0xc4203d2650, 0x2213, 0x904ddf, 0x4, 0x0, 0x0, 0x0, 0xc42007a098, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f6520, 0xc4203d2650, 0x2213, 0x0, 0x0, 0x0, 0xc4203d2650, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc420499680, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc420499680, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc420499680, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc420499680, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc420499680, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc420499680, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc420499680, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc420499680, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc420499680, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc420499680, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc420499680, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc420499680, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1bc00, 0xc420140540, 0xc42000bf00, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1bc00, 0xc420140540, 0xc42000bf00)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x924218, 0xb1bc00, 0xc420140540, 0xc42000bf00)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc4200aabb0, 0xb1bc00, 0xc420140540, 0xc42000bf00)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc4203e0140, 0xb1c380, 0xc420364300)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:46:37 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc42013bce0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc42013bce0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc42013bce0, 0x6b, 0x0, 0x0, 0x0, 0xc420211d00, 0xc420260bc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x906703, 0x6, 0x90b92a, 0xc, 0x2, 0x879be0, 0xc4201407e0)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:98 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc420499740, 0xc4204d90a0, 0xc420260df0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc4203d2c40, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f6520, 0xc4203d2c40, 0x2213, 0x904ddf, 0x4, 0x0, 0x0, 0x0, 0xc42007a100, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f6520, 0xc4203d2c40, 0x2213, 0x0, 0x0, 0x0, 0xc4203d2c40, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc420499740, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc420499740, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc420499740, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc420499740, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc420499740, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc420499740, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc420499740, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc420499740, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc420499740, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc420499740, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc420499740, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc420499740, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1bc00, 0xc420140700, 0xc4204ac000, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1bc00, 0xc420140700, 0xc4204ac000)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x924218, 0xb1bc00, 0xc420140700, 0xc4204ac000)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc4200aabb0, 0xb1bc00, 0xc420140700, 0xc4204ac000)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc4203e0140, 0xb1c380, 0xc420364300)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:46:41 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc4201b0850, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1f5e0, 0xc420063260, 0x0, 0x0, 0xc4201b0850, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc4201b0850, 0x6b, 0x0, 0x0, 0x0, 0x41163c, 0xc42008cbc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x906703, 0x6, 0x90b92a, 0xc, 0x2, 0x879be0, 0xc4202421c0)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:98 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4201bc180, 0xc420257640, 0xc42027adf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc4201af8b0, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f6520, 0xc4201af8b0, 0x2213, 0x904ddf, 0x4, 0x0, 0x0, 0x0, 0xc42000e820, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f6520, 0xc4201af8b0, 0x2213, 0x0, 0x0, 0x0, 0xc4201af8b0, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4201bc180, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4201bc180, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4201bc180, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4201bc180, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4201bc180, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4201bc180, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4201bc180, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4201bc180, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4201bc180, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4201bc180, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4201bc180, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4201bc180, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1bc00, 0xc4202420e0, 0xc4201ce600, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1bc00, 0xc4202420e0, 0xc4201ce600)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x924218, 0xb1bc00, 0xc4202420e0, 0xc4201ce600)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc420097290, 0xb1bc00, 0xc4202420e0, 0xc4201ce600)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc4201b6140, 0xb1c380, 0xc4201b8e40)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:47:16 # ilo/app/controllers
+controllers/hpDB.go:46: i declared and not used
+controllers/hpDB.go:50: i declared and not used
+
+ERROR 2017/07/20 14:47:52 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc4203225b0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc4203225b0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc4203225b0, 0x6b, 0x0, 0x0, 0x0, 0x41163c, 0xc42008cbc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x905703, 0x6, 0x90a92a, 0xc, 0x2, 0x878be0, 0xc420122620)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:94 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4203029c0, 0xc4202b67e0, 0xc42026cdf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc4203283c0, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f5520, 0xc4203283c0, 0x2213, 0x903ddf, 0x4, 0x0, 0x0, 0x0, 0xc4201bc698, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f5520, 0xc4203283c0, 0x2213, 0x0, 0x0, 0x0, 0xc4203283c0, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4203029c0, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4203029c0, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4203029c0, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4203029c0, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4203029c0, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4203029c0, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4203029c0, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4203029c0, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4203029c0, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4203029c0, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4203029c0, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4203029c0, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1ac00, 0xc420122540, 0xc420310200, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1ac00, 0xc420122540, 0xc420310200)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x923218, 0xb1ac00, 0xc420122540, 0xc420310200)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc420096f20, 0xb1ac00, 0xc420122540, 0xc420310200)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc420320280, 0xb1b380, 0xc4202fffc0)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:48:26 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc4203864d0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc4203864d0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc4203864d0, 0x6b, 0x0, 0x0, 0x0, 0xc4203df980, 0xc42008cbc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x905703, 0x6, 0x90a92a, 0xc, 0x2, 0x878be0, 0xc420208b60)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:94 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4203fe900, 0xc42040d2c0, 0xc42008cdf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc420412700, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f5520, 0xc420412700, 0x2213, 0x903ddf, 0x4, 0x0, 0x0, 0x0, 0xc42000e398, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f5520, 0xc420412700, 0x2213, 0x0, 0x0, 0x0, 0xc420412700, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4203fe900, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4203fe900, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4203fe900, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4203fe900, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4203fe900, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4203fe900, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4203fe900, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4203fe900, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4203fe900, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4203fe900, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4203fe900, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4203fe900, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1ac00, 0xc420122d20, 0xc4203e7300, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1ac00, 0xc420122d20, 0xc4203e7300)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x923218, 0xb1ac00, 0xc420122d20, 0xc4203e7300)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc420096f20, 0xb1ac00, 0xc420122d20, 0xc4203e7300)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc420320280, 0xb1b380, 0xc4202fffc0)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:48:27 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc4203865b0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc4203865b0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc4203865b0, 0x6b, 0x0, 0x0, 0x0, 0xc4203b6400, 0xc42008cbc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x905703, 0x6, 0x90a92a, 0xc, 0x2, 0x878be0, 0xc420208d20)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:94 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4201be6c0, 0xc4203b4b20, 0xc42008cdf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc42044e0d0, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f5520, 0xc42044e0d0, 0x2213, 0x903ddf, 0x4, 0x0, 0x0, 0x0, 0xc4201bc710, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f5520, 0xc42044e0d0, 0x2213, 0x0, 0x0, 0x0, 0xc42044e0d0, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4201be6c0, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4201be6c0, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4201be6c0, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4201be6c0, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4201be6c0, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4201be6c0, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4201be6c0, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4201be6c0, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4201be6c0, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4201be6c0, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4201be6c0, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4201be6c0, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1ac00, 0xc420208c40, 0xc42024b200, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1ac00, 0xc420208c40, 0xc42024b200)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x923218, 0xb1ac00, 0xc420208c40, 0xc42024b200)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc420096f20, 0xb1ac00, 0xc420208c40, 0xc42024b200)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc420320280, 0xb1b380, 0xc4202fffc0)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:48:32 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc420116850, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420063260, 0xb1e5e0, 0xc420063260, 0x0, 0x0, 0xc420116850, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420063260, 0x0, 0x0, 0xc420116850, 0x6b, 0x0, 0x0, 0x0, 0xc420326480, 0xc420376bc8, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x905703, 0x6, 0x90a92a, 0xc, 0x2, 0x878be0, 0xc4201222a0)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:94 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc420310000, 0xc4202b6b40, 0xc42004edf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:21 +0x193
+ilo/app/controllers.(*Monitor).Index(0xc420382b90, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f5520, 0xc420382b90, 0x2213, 0x903ddf, 0x4, 0x0, 0x0, 0x0, 0xc4201bc378, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f5520, 0xc420382b90, 0x2213, 0x0, 0x0, 0x0, 0xc420382b90, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc420310000, 0xc4200628f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc420310000, 0xc4200628f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc420310000, 0xc4200628f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc420310000, 0xc4200628e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc420310000, 0xc4200628e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc420310000, 0xc4200628d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc420310000, 0xc4200628d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc420310000, 0xc4200628c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc420310000, 0xc4200628c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc420310000, 0xc4200628b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc420310000, 0xc4200628b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc420310000, 0xc4200628a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1ac00, 0xc4201221c0, 0xc42024a900, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1ac00, 0xc4201221c0, 0xc42024a900)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x923218, 0xb1ac00, 0xc4201221c0, 0xc42024a900)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc420096f20, 0xb1ac00, 0xc4201221c0, 0xc42024a900)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc420320280, 0xb1b380, 0xc4202fffc0)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:50:24 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420069260, 0xb1e5e0, 0xc420069260, 0x0, 0x0, 0xc4202807e0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420069260, 0xb1e5e0, 0xc420069260, 0x0, 0x0, 0xc4202807e0, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420069260, 0x0, 0x0, 0xc4202807e0, 0x6b, 0x0, 0x0, 0x0, 0x0, 0xc4201c16c0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x905703, 0x6, 0x90a92a, 0xc, 0x2, 0x878be0, 0xc420140d20)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:93 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4200e9080, 0xc420203c20, 0xc420278df0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:22 +0x22d
+ilo/app/controllers.(*Monitor).Index(0xc420284fc0, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f5520, 0xc420284fc0, 0x2213, 0x903ddf, 0x4, 0x0, 0x0, 0x0, 0xc42000e2f8, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f5520, 0xc420284fc0, 0x2213, 0x0, 0x0, 0x0, 0xc420284fc0, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4200e9080, 0xc4200688f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4200e9080, 0xc4200688f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4200e9080, 0xc4200688f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4200e9080, 0xc4200688e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4200e9080, 0xc4200688e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4200e9080, 0xc4200688d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4200e9080, 0xc4200688d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4200e9080, 0xc4200688c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4200e9080, 0xc4200688c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4200e9080, 0xc4200688b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4200e9080, 0xc4200688b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4200e9080, 0xc4200688a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1ac00, 0xc420140c40, 0xc420266700, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1ac00, 0xc420140c40, 0xc420266700)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x923208, 0xb1ac00, 0xc420140c40, 0xc420266700)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc4200af290, 0xb1ac00, 0xc420140c40, 0xc420266700)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc42015ae60, 0xb1b380, 0xc420282cc0)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 14:50:39 runtime error: invalid memory address or nil pointer dereference
+/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1802 +0x5d
+github.com/coopernurse/gorp.rawselect(0xc420069260, 0xb1e5e0, 0xc420069260, 0x0, 0x0, 0xc4202e8850, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1535 +0x8c
+github.com/coopernurse/gorp.hookedselect(0xc420069260, 0xb1e5e0, 0xc420069260, 0x0, 0x0, 0xc4202e8850, 0x6b, 0x0, 0x0, 0x0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1492 +0xb5
+github.com/coopernurse/gorp.(*DbMap).Select(0xc420069260, 0x0, 0x0, 0xc4202e8850, 0x6b, 0x0, 0x0, 0x0, 0x0, 0xc4201c16c0, ...)
+	/home/skt/go/src/github.com/coopernurse/gorp/gorp.go:1040 +0xa1
+ilo/app/controllers.HpDBGetNewestRecode(0x905703, 0x6, 0x90a92a, 0xc, 0x2, 0x878be0, 0xc4202342a0)
+	/home/skt/go/src/ilo/app/controllers/hpDB.go:93 +0x1ae
+ilo/app/controllers.Monitor.Index(0xc4201ce300, 0xc4202ede80, 0xc42009edf0, 0x410b08)
+	/home/skt/go/src/ilo/app/controllers/monitor.go:22 +0x22d
+ilo/app/controllers.(*Monitor).Index(0xc4202efa80, 0x0, 0x0)
+	<autogenerated>:61 +0x56
+reflect.Value.call(0x8f5520, 0xc4202efa80, 0x2213, 0x903ddf, 0x4, 0x0, 0x0, 0x0, 0xc42000e348, 0x13, ...)
+	/usr/local/go/src/reflect/value.go:434 +0x91f
+reflect.Value.Call(0x8f5520, 0xc4202efa80, 0x2213, 0x0, 0x0, 0x0, 0xc4202efa80, 0x2213, 0x1)
+	/usr/local/go/src/reflect/value.go:302 +0xa4
+github.com/revel/revel.ActionInvoker(0xc4201ce300, 0xc4200688f8, 0x0, 0x0)
+	/home/skt/go/src/github.com/revel/revel/invoker.go:48 +0x60f
+github.com/revel/revel.CompressFilter(0xc4201ce300, 0xc4200688f8, 0x1, 0x1)
+	/home/skt/go/src/github.com/revel/revel/compress.go:55 +0x8e
+github.com/revel/revel.InterceptorFilter(0xc4201ce300, 0xc4200688f0, 0x2, 0x2)
+	/home/skt/go/src/github.com/revel/revel/intercept.go:107 +0xed
+ilo/app.glob..func1(0xc4201ce300, 0xc4200688e8, 0x3, 0x3)
+	/home/skt/go/src/ilo/app/init.go:49 +0x169
+github.com/revel/revel.I18nFilter(0xc4201ce300, 0xc4200688e0, 0x4, 0x4)
+	/home/skt/go/src/github.com/revel/revel/i18n.go:199 +0x279
+github.com/revel/revel.ValidationFilter(0xc4201ce300, 0xc4200688d8, 0x5, 0x5)
+	/home/skt/go/src/github.com/revel/revel/validation.go:201 +0x177
+github.com/revel/revel.FlashFilter(0xc4201ce300, 0xc4200688d0, 0x6, 0x6)
+	/home/skt/go/src/github.com/revel/revel/flash.go:50 +0x158
+github.com/revel/revel.SessionFilter(0xc4201ce300, 0xc4200688c8, 0x7, 0x7)
+	/home/skt/go/src/github.com/revel/revel/session.go:157 +0x130
+github.com/revel/revel.ParamsFilter(0xc4201ce300, 0xc4200688c0, 0x8, 0x8)
+	/home/skt/go/src/github.com/revel/revel/params.go:184 +0xb4
+github.com/revel/revel.FilterConfiguringFilter(0xc4201ce300, 0xc4200688b8, 0x9, 0x9)
+	/home/skt/go/src/github.com/revel/revel/filterconfig.go:211 +0x129
+github.com/revel/revel.RouterFilter(0xc4201ce300, 0xc4200688b0, 0xa, 0xa)
+	/home/skt/go/src/github.com/revel/revel/router.go:460 +0x2af
+github.com/revel/revel.PanicFilter(0xc4201ce300, 0xc4200688a8, 0xb, 0xb)
+	/home/skt/go/src/github.com/revel/revel/panic.go:19 +0x96
+github.com/revel/revel.handleInternal(0xb1ac00, 0xc4202341c0, 0xc42000bb00, 0x0)
+	/home/skt/go/src/github.com/revel/revel/server.go:64 +0x40a
+github.com/revel/revel.handle(0xb1ac00, 0xc4202341c0, 0xc42000bb00)
+	/home/skt/go/src/github.com/revel/revel/server.go:46 +0xda
+net/http.HandlerFunc.ServeHTTP(0x923208, 0xb1ac00, 0xc4202341c0, 0xc42000bb00)
+	/usr/local/go/src/net/http/server.go:1942 +0x44
+net/http.serverHandler.ServeHTTP(0xc4200af290, 0xb1ac00, 0xc4202341c0, 0xc42000bb00)
+	/usr/local/go/src/net/http/server.go:2568 +0x92
+net/http.(*conn).serve(0xc42015ae60, 0xb1b380, 0xc420282cc0)
+	/usr/local/go/src/net/http/server.go:1825 +0x612
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2668 +0x2ce
+ERROR 2017/07/20 15:10:59 # ilo/app/controllers
+controllers/hpDB.go:74: cannot convert "select * from System where Id in (select max(Id) from System where ILO_Id = " to type int64
+controllers/hpDB.go:74: invalid operation: "select * from System where Id in (select max(Id) from System where ILO_Id = " + ilo_id (mismatched types string and int64)
+controllers/hpDB.go:75: assignment count mismatch: 2 = 1
+
+ERROR 2017/07/20 15:11:30 # ilo/app/controllers
+controllers/hpDB.go:74: undefined: strconv.Format
+controllers/hpDB.go:75: assignment count mismatch: 2 = 1
+
+ERROR 2017/07/20 15:11:45 # ilo/app/controllers
+controllers/hpDB.go:75: assignment count mismatch: 2 = 1
+
+ERROR 2017/07/20 15:12:30 revel/router: reverse route missing route arg id
+ERROR 2017/07/20 15:12:35 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:13:52 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:15:57 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:15:58 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:16:06 revel/router: reverse route missing route arg id
+ERROR 2017/07/20 15:16:08 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:19:52 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:21:28 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:21:34 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:22:57 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:23:18 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:23:19 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:23:29 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:26:29 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:26:37 runtime error: invalid memory address or nil pointer dereference
+ERROR 2017/07/20 15:29:53 runtime error: invalid memory address or nil pointer dereference

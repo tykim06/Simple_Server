@@ -16,11 +16,11 @@
 			<th>{{$key}}</th>
 			<th>
         {{if eq $key "Fans"}}
-        <a href="{{url "Monitor.Fans" $.id}}">
+        <a href="{{url "Monitor.Fans" $.ilo_id}}">
         {{else if eq $key "Powers"}}
-        <a href="{{url "Monitor.Powers" $.id}}">
+        <a href="{{url "Monitor.Powers" $.ilo_id}}">
         {{else if eq $key "Temperatures"}}
-        <a href="{{url "Monitor.Temperatures" $.id}}">
+        <a href="{{url "Monitor.Temperatures" $.ilo_id}}">
         {{end}}
 
         {{if eq $value "OK"}}

@@ -7,14 +7,14 @@ module:testrunner
 # module:jobs
 
 
-GET     /                                       Monitor.Index
-POST    /monitor                                Monitor.AddiLO
-GET     /monitor/overview/:id                   Monitor.Overview
-GET     /monitor/fans/:id                       Monitor.Fans
-GET     /monitor/powers/:id                     Monitor.Powers
-GET     /monitor/temperatures/:id               Monitor.Temperatures
-GET     /monitor/eventlog/:id/page/:pageNumber  Monitor.EventLog
-GET     /monitor/systemlog/:id/page/:pageNumber  Monitor.SystemLog
+GET     /                                           Monitor.Index
+POST    /monitor                                    Monitor.AddiLO
+GET     /monitor/overview/:ilo_id                   Monitor.Overview
+GET     /monitor/fans/:ilo_id                       Monitor.Fans
+GET     /monitor/powers/:ilo_id                     Monitor.Powers
+GET     /monitor/temperatures/:ilo_id               Monitor.Temperatures
+GET     /monitor/eventlog/:ilo_id/page/:pageNumber  Monitor.EventLog
+GET     /monitor/systemlog/:ilo_id/page/:pageNumber Monitor.SystemLog
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

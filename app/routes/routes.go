@@ -126,59 +126,59 @@ func (_ tMonitor) AddiLO(
 }
 
 func (_ tMonitor) Overview(
-		id int,
+		ilo_id int64,
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "ilo_id", ilo_id)
 	return revel.MainRouter.Reverse("Monitor.Overview", args).URL
 }
 
 func (_ tMonitor) Fans(
-		id int,
+		ilo_id int64,
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "ilo_id", ilo_id)
 	return revel.MainRouter.Reverse("Monitor.Fans", args).URL
 }
 
 func (_ tMonitor) Powers(
-		id int,
+		ilo_id int64,
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "ilo_id", ilo_id)
 	return revel.MainRouter.Reverse("Monitor.Powers", args).URL
 }
 
 func (_ tMonitor) Temperatures(
-		id int,
+		ilo_id int64,
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "ilo_id", ilo_id)
 	return revel.MainRouter.Reverse("Monitor.Temperatures", args).URL
 }
 
 func (_ tMonitor) EventLog(
-		id int,
+		ilo_id int64,
 		pageNumber int,
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "ilo_id", ilo_id)
 	revel.Unbind(args, "pageNumber", pageNumber)
 	return revel.MainRouter.Reverse("Monitor.EventLog", args).URL
 }
 
 func (_ tMonitor) SystemLog(
-		id int,
+		ilo_id int64,
 		pageNumber int,
 		) string {
 	args := make(map[string]string)
 	
-	revel.Unbind(args, "id", id)
+	revel.Unbind(args, "ilo_id", ilo_id)
 	revel.Unbind(args, "pageNumber", pageNumber)
 	return revel.MainRouter.Reverse("Monitor.SystemLog", args).URL
 }
