@@ -13,8 +13,8 @@ type Fan struct {
 	FanName        string `db:"FanName" json:"FanName"`
 	FanOem         `db:"Oem" json:"Oem"`
 	FanStatus      `db:"Status" json:"Status"`
-	Units          string    `db:"Units" json:"Units"`
-	CreatedAt      time.Time `db:"CreatedAt"`
+	Units          string `db:"Units" json:"Units"`
+	CreatedAt      string `db:"CreatedAt"`
 }
 
 type FanOem struct {
@@ -32,7 +32,7 @@ type FanStatus struct {
 }
 
 func (c *Fan) PreInsert(_ gorp.SqlExecutor) error {
-	c.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
+	c.CreatedAt = time.Now().Format("2017-07-21 03:48:28")
 	return nil
 }
 
@@ -54,8 +54,8 @@ type Temperature struct {
 	Number            int    `db:"Number" json:"Number"`
 	TemperatureOem    `db:"Oem" json:"Oem"`
 	TemperatureStatus `db:"Status" json:"Status"`
-	Units             string    `db:"Units" json:"Units"`
-	CreatedAt         time.Time `db:"CreatedAt"`
+	Units             string `db:"Units" json:"Units"`
+	CreatedAt         string `db:"CreatedAt"`
 }
 
 type TemperatureOem struct {
@@ -74,7 +74,7 @@ type TemperatureStatus struct {
 }
 
 func (c *Temperature) PreInsert(_ gorp.SqlExecutor) error {
-	c.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
+	c.CreatedAt = time.Now().Format("2017-07-21 03:48:28")
 	return nil
 }
 

@@ -13,7 +13,7 @@ type Power struct {
 	Name        string `db:"Name" json:"Name"`
 	PowerOem    `json:"Oem"`
 	PowerStatus `json:"Status"`
-	CreatedAt   time.Time `db:"CreatedAt"`
+	CreatedAt   string `db:"CreatedAt"`
 }
 
 type PowerOem struct {
@@ -30,7 +30,7 @@ type PowerStatus struct {
 }
 
 func (c *Power) PreInsert(_ gorp.SqlExecutor) error {
-	c.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
+	c.CreatedAt = time.Now().Format("2017-07-21 03:48:28")
 	return nil
 }
 

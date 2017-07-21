@@ -18,7 +18,7 @@ type System struct {
 	SKU          string `db:"SKU" json:"SKU"`
 	SerialNumber string `db:"SerialNumber" json:"SerialNumber"`
 	SystemStatus `db:"Status" json:"Status"`
-	CreatedAt    time.Time `db:"CreatedAt"`
+	CreatedAt    string `db:"CreatedAt"`
 }
 
 type Bios struct {
@@ -45,6 +45,6 @@ type SystemStatus struct {
 }
 
 func (c *System) PreInsert(_ gorp.SqlExecutor) error {
-	c.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
+	c.CreatedAt = time.Now().Format("2017-07-21 03:48:28")
 	return nil
 }

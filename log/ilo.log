@@ -1625,3 +1625,22 @@ WARN  2017/07/21 10:05:46 File not found (/home/skt/go/src/ilo/public/bare/css/b
 WARN  2017/07/21 10:05:46 File not found (/home/skt/go/src/ilo/public/bare/js/jquery.js): stat /home/skt/go/src/ilo/public/bare/js/jquery.js: no such file or directory 
 WARN  2017/07/21 10:05:46 File not found (/home/skt/go/src/ilo/public/bare/js/bootstrap.min.js): stat /home/skt/go/src/ilo/public/bare/js/bootstrap.min.js: no such file or directory 
 WARN  2017/07/21 10:05:46 File not found (/home/skt/go/src/ilo/public/bare/js/bootstrap.min.js): stat /home/skt/go/src/ilo/public/bare/js/bootstrap.min.js: no such file or directory 
+ERROR 2017/07/21 12:43:14 # ilo/app/models
+app/models/eventLog.go:38: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+app/models/fanTemperature.go:35: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+app/models/fanTemperature.go:77: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+app/models/ilo.go:18: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+app/models/power.go:33: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+app/models/system.go:48: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+app/models/systemLog.go:37: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+
+ERROR 2017/07/21 12:45:32 # ilo/app/models
+app/models/fanTemperature.go:77: cannot use time.Now().Format("2006-01-02 15:04:05") (type string) as type time.Time in assignment
+
+ERROR 2017/07/21 12:45:46 # ilo/app/controllers
+app/controllers/http.go:36: target.(*models.EventLogJson).Page undefined (type *models.EventLogJson has no field or method Page)
+app/controllers/http.go:40: target.(*models.SystemLogJson).Page undefined (type *models.SystemLogJson has no field or method Page)
+
+ERROR 2017/07/21 12:58:35 # ilo/app/models
+app/models/systemLog.go:36: cannot use time.Now().Format("2017-07-21 03:48:28") (type string) as type time.Time in assignment
+
