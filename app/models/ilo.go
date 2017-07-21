@@ -7,11 +7,11 @@ import (
 )
 
 type Ilo struct {
-	Id        int64  `db:"Id"`
-	Host      string `db:"Host"`
-	User      string `db:"User"`
-	Pass      string `db:"Pass"`
-	CreatedAt string `db:"CreatedAt"`
+	Id        int64     `db:"Id"`
+	Host      string    `db:"Host"`
+	User      string    `db:"User"`
+	Pass      string    `db:"Pass"`
+	CreatedAt time.Time `db:"CreatedAt"`
 }
 
 func (c *Ilo) PreInsert(_ gorp.SqlExecutor) error {

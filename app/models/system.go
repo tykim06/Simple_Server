@@ -18,7 +18,7 @@ type System struct {
 	SKU          string `db:"SKU" json:"SKU"`
 	SerialNumber string `db:"SerialNumber" json:"SerialNumber"`
 	SystemStatus `db:"Status" json:"Status"`
-	CreatedAt    string `db:"CreatedAt"`
+	CreatedAt    time.Time `db:"CreatedAt"`
 }
 
 type Bios struct {

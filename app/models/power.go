@@ -13,7 +13,7 @@ type Power struct {
 	Name        string `db:"Name" json:"Name"`
 	PowerOem    `json:"Oem"`
 	PowerStatus `json:"Status"`
-	CreatedAt   string `db:"CreatedAt"`
+	CreatedAt   time.Time `db:"CreatedAt"`
 }
 
 type PowerOem struct {

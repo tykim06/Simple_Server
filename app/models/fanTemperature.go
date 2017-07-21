@@ -13,8 +13,8 @@ type Fan struct {
 	FanName        string `db:"FanName" json:"FanName"`
 	FanOem         `db:"Oem" json:"Oem"`
 	FanStatus      `db:"Status" json:"Status"`
-	Units          string `db:"Units" json:"Units"`
-	CreatedAt      string `db:"CreatedAt"`
+	Units          string    `db:"Units" json:"Units"`
+	CreatedAt      time.Time `db:"CreatedAt"`
 }
 
 type FanOem struct {
@@ -54,8 +54,8 @@ type Temperature struct {
 	Number            int    `db:"Number" json:"Number"`
 	TemperatureOem    `db:"Oem" json:"Oem"`
 	TemperatureStatus `db:"Status" json:"Status"`
-	Units             string `db:"Units" json:"Units"`
-	CreatedAt         string `db:"CreatedAt"`
+	Units             string    `db:"Units" json:"Units"`
+	CreatedAt         time.Time `db:"CreatedAt"`
 }
 
 type TemperatureOem struct {
