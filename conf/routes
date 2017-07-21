@@ -13,8 +13,6 @@ GET     /monitor/overview/:ilo_id                   Monitor.Overview
 GET     /monitor/fans/:ilo_id                       Monitor.Fans
 GET     /monitor/powers/:ilo_id                     Monitor.Powers
 GET     /monitor/temperatures/:ilo_id               Monitor.Temperatures
-GET     /monitor/eventlog/:ilo_id/page/:pageNumber  Monitor.EventLog
-GET     /monitor/systemlog/:ilo_id/page/:pageNumber Monitor.SystemLog
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

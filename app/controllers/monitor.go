@@ -49,35 +49,3 @@ func (c Monitor) Temperatures(ilo_id int64) revel.Result {
 
 	return c.Render(ilo_id, temperatures)
 }
-
-func (c Monitor) EventLog(ilo_id int64, pageNumber int) revel.Result {
-	// eventJson := &models.EventLogJson{}
-	// eventJson.Page = pageNumber
-	// err := HttpGetState(ilos[id], eventJson)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// pageInfo := []int{}
-	// for j, i := 1, eventJson.Total; i > 0; i -= 40 {
-	// 	pageInfo = append(pageInfo, j)
-	// 	j++
-	// }
-	// return c.Render(id, eventJson, pageInfo)
-	return c.Render(ilo_id)
-}
-
-func (c Monitor) SystemLog(ilo_id int64, pageNumber int) revel.Result {
-	// systemJson := &models.SystemLogJson{}
-	// systemJson.Page = pageNumber
-	// err := HttpGetState(ilos[id], systemJson)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// pageInfo := []int{}
-	// for j, i := 1, systemJson.Total; i > 0; i -= 40 {
-	// 	pageInfo = append(pageInfo, j)
-	// 	j++
-	// }
-	// return c.Render(id, systemJson, pageInfo)
-	return c.Render(ilo_id)
-}
