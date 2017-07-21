@@ -169,8 +169,9 @@ func main() {
 					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					43: []string{ 
+					40: []string{ 
 						"ilo_id",
+						"fans",
 					},
 				},
 			},
@@ -180,8 +181,9 @@ func main() {
 					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					51: []string{ 
+					45: []string{ 
 						"ilo_id",
+						"powers",
 					},
 				},
 			},
@@ -191,8 +193,9 @@ func main() {
 					&revel.MethodArg{Name: "ilo_id", Type: reflect.TypeOf((*int64)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					57: []string{ 
+					50: []string{ 
 						"ilo_id",
+						"temperatures",
 					},
 				},
 			},
@@ -203,7 +206,7 @@ func main() {
 					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					73: []string{ 
+					66: []string{ 
 						"ilo_id",
 					},
 				},
@@ -215,7 +218,7 @@ func main() {
 					&revel.MethodArg{Name: "pageNumber", Type: reflect.TypeOf((*int)(nil)) },
 				},
 				RenderArgNames: map[int][]string{ 
-					89: []string{ 
+					82: []string{ 
 						"ilo_id",
 					},
 				},

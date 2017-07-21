@@ -7,6 +7,13 @@ import (
 	"time"
 )
 
+var dbTableGroupMap = map[string]string{
+	"Fan":         "FanName",
+	"Power":       "BayNumber",
+	"Temperature": "Name",
+	"System":      "SerialNumber",
+}
+
 func InitHpDB() {
 	go func() {
 		log.Println("Start HpDB")
@@ -62,13 +69,13 @@ func InsertCurrentState(ilo models.Ilo) {
 	}
 }
 
-func GetNewestRecodesQuary(table string, group string, ilo_id int64) string {
-	return "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + group + ")"
+func GetNewestRecodesQuary(table string, ilo_id int64) string {
+	return "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + dbTableGroupMap[table] + ")"
 }
 
 func GetFansTotalHealth(ilo_id int64) string {
 	var fans []models.Fan
-	if _, err := Dbm.Select(&fans, GetNewestRecodesQuary("Fan", "FanName", ilo_id)); err != nil {
+	if _, err := Dbm.Select(&fans, GetNewestRecodesQuary("Fan", ilo_id)); err != nil {
 		log.Println(err)
 		return "Warning"
 	}
@@ -78,7 +85,7 @@ func GetFansTotalHealth(ilo_id int64) string {
 
 func GetTemperaturesTotalHealth(ilo_id int64) string {
 	var temperatures []models.Temperature
-	if _, err := Dbm.Select(&temperatures, GetNewestRecodesQuary("Temperature", "Name", ilo_id)); err != nil {
+	if _, err := Dbm.Select(&temperatures, GetNewestRecodesQuary("Temperature", ilo_id)); err != nil {
 		log.Println(err)
 		return "Warning"
 	}
@@ -88,7 +95,7 @@ func GetTemperaturesTotalHealth(ilo_id int64) string {
 
 func GetPowersTotalHealth(ilo_id int64) string {
 	var powers []models.Power
-	if _, err := Dbm.Select(&powers, GetNewestRecodesQuary("Power", "BayNumber", ilo_id)); err != nil {
+	if _, err := Dbm.Select(&powers, GetNewestRecodesQuary("Power", ilo_id)); err != nil {
 		log.Println(err)
 		return "Warning"
 	}
@@ -117,7 +124,7 @@ func GetNewestSystems(ilos []models.Ilo) []models.System {
 	systems := make([]models.System, len(ilos))
 	for i, ilo := range ilos {
 		if err := Dbm.SelectOne(&systems[i],
-			GetNewestRecodesQuary("System", "SerialNumber", ilo.Id)); err != nil {
+			GetNewestRecodesQuary("System", ilo.Id)); err != nil {
 			log.Println(err)
 		}
 	}
@@ -128,4 +135,28 @@ func HpDBGetIndexInfo() ([]models.Ilo, []models.System) {
 	ilos := GetIlos()
 	systems := GetNewestSystems(ilos)
 	return ilos, systems
+}
+
+func HpDBGetFansInfo(ilo_id int64) []models.Fan {
+	var fans []models.Fan
+	if _, err := Dbm.Select(&fans, GetNewestRecodesQuary("Fan", ilo_id)); err != nil {
+		log.Println(err)
+	}
+	return fans
+}
+
+func HpDBGetPowersInfo(ilo_id int64) []models.Power {
+	var powers []models.Power
+	if _, err := Dbm.Select(&powers, GetNewestRecodesQuary("Power", ilo_id)); err != nil {
+		log.Println(err)
+	}
+	return powers
+}
+
+func HpDBGetTemperaturesInfo(ilo_id int64) []models.Temperature {
+	var temperature []models.Temperature
+	if _, err := Dbm.Select(&temperature, GetNewestRecodesQuary("Temperature", ilo_id)); err != nil {
+		log.Println(err)
+	}
+	return temperature
 }
