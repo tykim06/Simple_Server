@@ -7,18 +7,22 @@ import (
 	"time"
 )
 
+var dbTableGroupMap = map[string]string{
+	"Fan":         "FanName",
+	"Power":       "BayNumber",
+	"Temperature": "Name",
+	"System":      "SerialNumber",
+}
+
 func InitHpDB() {
 	go func() {
 		log.Println("Start HpDB")
 		var ilos []models.Ilo
 
 		for {
-			if _, err := HpDBGetIlo(&ilos); err != nil {
-				log.Println(err)
-			} else {
-				for _, ilo := range ilos {
-					go InsertCurrentState(ilo)
-				}
+			ilos = GetIlos()
+			for _, ilo := range ilos {
+				go InsertCurrentState(ilo)
 			}
 
 			time.Sleep(20 * time.Second)
@@ -65,37 +69,94 @@ func InsertCurrentState(ilo models.Ilo) {
 	}
 }
 
-func HpDBGetIlo(ilos *[]models.Ilo) ([]interface{}, error) {
-	*ilos = nil
-	return Dbm.Select(ilos, `select * from Ilo`)
+func GetNewestRecodesQuary(table string, ilo_id int64) string {
+	return "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + dbTableGroupMap[table] + ")"
 }
 
-func HpDBGetNewestSystem(ilo_id int64, system *models.System) {
-	quary := "select * from System where Id in (select max(Id) from System where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by System.SerialNumber)"
-	if err := Dbm.SelectOne(system, quary); err != nil {
+func GetFansTotalHealth(ilo_id int64) string {
+	var fans []models.Fan
+	if _, err := Dbm.Select(&fans, GetNewestRecodesQuary("Fan", ilo_id)); err != nil {
+		log.Println(err)
+		return "Warning"
+	}
+
+	return models.GetFansHealth(fans)
+}
+
+func GetTemperaturesTotalHealth(ilo_id int64) string {
+	var temperatures []models.Temperature
+	if _, err := Dbm.Select(&temperatures, GetNewestRecodesQuary("Temperature", ilo_id)); err != nil {
+		log.Println(err)
+		return "Warning"
+	}
+
+	return models.GetTemperaturesHealth(temperatures)
+}
+
+func GetPowersTotalHealth(ilo_id int64) string {
+	var powers []models.Power
+	if _, err := Dbm.Select(&powers, GetNewestRecodesQuary("Power", ilo_id)); err != nil {
+		log.Println(err)
+		return "Warning"
+	}
+
+	return models.GetPowersHealth(powers)
+}
+
+func HpDBGetOverviewInfo(ilo_id int64) map[string]string {
+	totalHealthMap := make(map[string]string)
+	totalHealthMap["Fans"] = GetFansTotalHealth(ilo_id)
+	totalHealthMap["Temperatures"] = GetTemperaturesTotalHealth(ilo_id)
+	totalHealthMap["Powers"] = GetPowersTotalHealth(ilo_id)
+
+	return totalHealthMap
+}
+
+func GetIlos() []models.Ilo {
+	var ilos []models.Ilo
+	if _, err := Dbm.Select(&ilos, `select * from Ilo`); err != nil {
 		log.Println(err)
 	}
+	return ilos
 }
 
-func HpDBGetNewestRecode(table string, group string, ilo_id int64, target interface{}) {
-	quary := "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + group + ")"
-
-	var original interface{}
-	var ok bool
-
-	switch target.(type) {
-	case *[]models.Power:
-		original, ok = target.(*[]models.Power)
-	case *[]models.Temperature:
-		original, ok = target.(*[]models.Temperature)
-	case *[]models.Fan:
-		original, ok = target.(*[]models.Fan)
-	}
-	if !ok {
-		log.Println("Type Assertion Failed")
-	} else {
-		if _, err := Dbm.Select(original, quary); err != nil {
+func GetNewestSystems(ilos []models.Ilo) []models.System {
+	systems := make([]models.System, len(ilos))
+	for i, ilo := range ilos {
+		if err := Dbm.SelectOne(&systems[i],
+			GetNewestRecodesQuary("System", ilo.Id)); err != nil {
 			log.Println(err)
 		}
 	}
+	return systems
+}
+
+func HpDBGetIndexInfo() ([]models.Ilo, []models.System) {
+	ilos := GetIlos()
+	systems := GetNewestSystems(ilos)
+	return ilos, systems
+}
+
+func HpDBGetFansInfo(ilo_id int64) []models.Fan {
+	var fans []models.Fan
+	if _, err := Dbm.Select(&fans, GetNewestRecodesQuary("Fan", ilo_id)); err != nil {
+		log.Println(err)
+	}
+	return fans
+}
+
+func HpDBGetPowersInfo(ilo_id int64) []models.Power {
+	var powers []models.Power
+	if _, err := Dbm.Select(&powers, GetNewestRecodesQuary("Power", ilo_id)); err != nil {
+		log.Println(err)
+	}
+	return powers
+}
+
+func HpDBGetTemperaturesInfo(ilo_id int64) []models.Temperature {
+	var temperature []models.Temperature
+	if _, err := Dbm.Select(&temperature, GetNewestRecodesQuary("Temperature", ilo_id)); err != nil {
+		log.Println(err)
+	}
+	return temperature
 }

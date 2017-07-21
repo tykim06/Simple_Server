@@ -34,6 +34,15 @@ func (c *Power) PreInsert(_ gorp.SqlExecutor) error {
 	return nil
 }
 
+func GetPowersHealth(powers []Power) string {
+	for _, p := range powers {
+		if p.PowerStatus.Health != "OK" {
+			return "Warning"
+		}
+	}
+	return "OK"
+}
+
 type PowerJson struct {
 	Powers []Power `json:"PowerSupplies"`
 }
