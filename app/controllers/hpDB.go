@@ -66,84 +66,41 @@ func GetNewestRecodesQuary(table string, group string, ilo_id int64) string {
 	return "select * from " + table + " where Id in (select max(Id) from " + table + " where ILO_Id = " + strconv.FormatInt(ilo_id, 10) + " group by " + table + "." + group + ")"
 }
 
-func HpDBGetNewestRecodes(table string, group string, ilo_id int64, target interface{}) error {
-	var original interface{}
-
-	switch target.(type) {
-	case *[]models.Fan:
-		original = target.(*[]models.Fan)
-	case *[]models.Temperature:
-		original = target.(*[]models.Temperature)
-	case *[]models.Power:
-		original = target.(*[]models.Power)
-	}
-	_, err := Dbm.Select(original, GetNewestRecodesQuary(table, group, ilo_id))
-
-	return err
-}
-
-func GetFansHealth(ilo_id int64) string {
+func GetFansTotalHealth(ilo_id int64) string {
 	var fans []models.Fan
-	if err := HpDBGetNewestRecodes("Fan", "FanName", ilo_id, &fans); err != nil {
+	if _, err := Dbm.Select(&fans, GetNewestRecodesQuary("Fan", "FanName", ilo_id)); err != nil {
 		log.Println(err)
 		return "Warning"
-	} else {
-		for _, f := range fans {
-			if f.FanStatus.Health != "OK" {
-				return "Warning"
-			}
-		}
 	}
 
-	return "OK"
+	return models.GetFansHealth(fans)
 }
 
-func GetTemperaturesHealth(ilo_id int64) string {
+func GetTemperaturesTotalHealth(ilo_id int64) string {
 	var temperatures []models.Temperature
-	if err := HpDBGetNewestRecodes("Temperature", "Name", ilo_id, &temperatures); err != nil {
+	if _, err := Dbm.Select(&temperatures, GetNewestRecodesQuary("Temperature", "Name", ilo_id)); err != nil {
 		log.Println(err)
 		return "Warning"
-	} else {
-		for _, t := range temperatures {
-			if t.TemperatureStatus.Health != "OK" && t.TemperatureStatus.State != "Absent" {
-				return "Warning"
-			}
-		}
 	}
 
-	return "OK"
+	return models.GetTemperaturesHealth(temperatures)
 }
 
-func GetPowersHealth(ilo_id int64) string {
+func GetPowersTotalHealth(ilo_id int64) string {
 	var powers []models.Power
-	if err := HpDBGetNewestRecodes("Power", "BayNumber", ilo_id, &powers); err != nil {
+	if _, err := Dbm.Select(&powers, GetNewestRecodesQuary("Power", "BayNumber", ilo_id)); err != nil {
 		log.Println(err)
 		return "Warning"
-	} else {
-		for _, p := range powers {
-			if p.PowerStatus.Health != "OK" {
-				return "Warning"
-			}
-		}
 	}
 
-	return "OK"
-}
-
-func GetTotalHealth(ilo_id int64, table string) string {
-	switch table {
-	case "Fan":
-	case "Temperature":
-	case "Power":
-	}
-	return "OK"
+	return models.GetPowersHealth(powers)
 }
 
 func HpDBGetOverviewInfo(ilo_id int64) map[string]string {
 	totalHealthMap := make(map[string]string)
-	totalHealthMap["Fans"] = GetTotalHealth(ilo_id, "Fan")
-	totalHealthMap["Temperatures"] = GetTotalHealth(ilo_id, "Temperature")
-	totalHealthMap["Powers"] = GetTotalHealth(ilo_id, "Power")
+	totalHealthMap["Fans"] = GetFansTotalHealth(ilo_id)
+	totalHealthMap["Temperatures"] = GetTemperaturesTotalHealth(ilo_id)
+	totalHealthMap["Powers"] = GetPowersTotalHealth(ilo_id)
 
 	return totalHealthMap
 }

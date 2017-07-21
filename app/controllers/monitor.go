@@ -35,19 +35,26 @@ func (c Monitor) Overview(ilo_id int64) revel.Result {
 }
 
 func (c Monitor) Fans(ilo_id int64) revel.Result {
-	var fans []models.Fan
-	HpDBGetNewestRecodes("Fan", "FanName", ilo_id, &fans)
-	return c.Render(ilo_id, fans)
+	// var fans []models.Fan
+	// if original, err := HpDBGetNewestRecodes("Fan", ilo_id); err != nil {
+	// 	fans, _ := original.([]models.Fan)
+	// }
+	// return c.Render(ilo_id, fans)
+	return c.Render(ilo_id)
 }
 func (c Monitor) Powers(ilo_id int64) revel.Result {
-	var powers []models.Power
-	HpDBGetNewestRecodes("Power", "BayNumber", ilo_id, &powers)
-	return c.Render(ilo_id, powers)
+	// var powers []models.Power
+	// if original, err := HpDBGetNewestRecodes("Power", ilo_id); err != nil {
+	// 	powers, _ := original.([]models.Power)
+	// }
+	// return c.Render(ilo_id, powers)
+	return c.Render(ilo_id)
 }
 func (c Monitor) Temperatures(ilo_id int64) revel.Result {
-	var temperatures []models.Temperature
-	HpDBGetNewestRecodes("Temperature", "Name", ilo_id, &temperatures)
-	return c.Render(ilo_id, temperatures)
+	// var temperatures []models.Temperature
+	// HpDBGetNewestRecodes("Temperature", "Name", ilo_id, &temperatures)
+	// return c.Render(ilo_id, temperatures)
+	return c.Render(ilo_id)
 }
 
 func (c Monitor) EventLog(ilo_id int64, pageNumber int) revel.Result {

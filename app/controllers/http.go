@@ -4,7 +4,6 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"ilo/app/models"
-	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -57,8 +56,4 @@ func HttpGetState(ilo models.Ilo, target interface{}) error {
 	defer res.Body.Close()
 
 	return json.NewDecoder(res.Body).Decode(target)
-}
-
-func InitHttp() {
-	log.Println("Set http attribute")
 }
